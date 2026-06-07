@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pcb Point</title>
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#DDB7FF",
+            purple: "#B76DFF",
+            cyan: "#4CD7F6",
+            green: "#4AE176",
+            dark: "#050505"
+          },
+          fontFamily: {
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Outfit", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    html, body { margin: 0; overflow-x: hidden; background: #050505; }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(18px);
+      transition: .4s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-8px);
+      border-color: rgba(183,109,255,.45);
+      box-shadow: 0 25px 60px rgba(0,0,0,.45);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg,#fff,#DDB7FF,#4CD7F6,#fff);
+      background-size: 250%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 250%; }
+    }
+
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu {
+      clip-path: circle(0% at 90% 10%);
+      transition: .7s ease;
+    }
+
+    .menu.open {
+      clip-path: circle(160% at 90% 10%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: scroll 25s linear infinite;
+    }
+
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      to { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+
+<body class="font-body text-zinc-300 bg-dark">
+
+<!-- PREMIUM RESPONSIVE HEADER -->
+<!-- PREMIUM RESPONSIVE HEADER - THE PCB POINT -->
+<header id="header" class="fixed top-0 left-0 w-full z-50 px-3 sm:px-4 py-3 sm:py-4">
+  <div class="max-w-7xl mx-auto header-glass rounded-2xl sm:rounded-3xl px-4 sm:px-5 md:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+
+    <!-- LOGO -->
+    <a href="/" class="logo-wrap min-w-0 flex flex-col leading-none">
+      <span class="logo-text text-white font-display font-black tracking-tight">
+        The PCB Point<span class="text-primary">.</span>
+      </span>
+      <span class="logo-sub text-zinc-500 font-black uppercase mt-1">
+        NEET Preparation Point.
+      </span>
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex items-center gap-7 xl:gap-9 text-[11px] font-black uppercase tracking-[.22em] text-white">
+      <a href="/" class="nav-link">Home</a>
+      <a href="mentorship.html" class="nav-link">Mentorship</a>
+      <a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="test-series.html" class="nav-link">Test Series</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- ACTIONS -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="https://wa.link/w2i0o7" class="hidden sm:inline-flex bg-white text-black px-5 md:px-6 py-3 rounded-full text-[10px] md:text-xs font-black uppercase hover:bg-primary transition">
+        Join Now
+      </a>
+
+      <button id="menuBtn" aria-label="Open menu" class="menu-btn w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1.5 hover:bg-white/10 transition">
+        <span class="w-5 h-[2px] bg-white rounded-full"></span>
+        <span class="w-3 h-[2px] bg-primary rounded-full"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="menu" class="premium-menu fixed inset-0 bg-[#050505] opacity-0 pointer-events-none z-[60] flex flex-col justify-center px-6 sm:px-10">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute -top-20 -left-20 w-72 h-72 bg-purple/20 rounded-full blur-[100px]"></div>
+      <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-cyan/20 rounded-full blur-[100px]"></div>
+      <h2 class="absolute bottom-8 left-4 text-[17vw] sm:text-[14vw] font-black text-white/[0.035] leading-none uppercase">
+        PCB POINT
+      </h2>
+    </div>
+
+    <button id="closeBtn" aria-label="Close menu" class="absolute top-6 right-5 sm:top-8 sm:right-8 text-white border border-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full hover:bg-white hover:text-black transition z-10">
+      ✕
+    </button>
+
+    <div class="relative z-10">
+      <p class="text-primary text-[10px] sm:text-xs uppercase tracking-[.45em] font-black mb-8">
+        Menu
+      </p>
+
+      <a href="/" class="mobile-link">Home</a>
+      <a href="mentorship.html" class="mobile-link">Mentorship</a>
+      <a href="testimonials.html" class="mobile-link">Testimonials</a>
+      <a href="test-series.html" class="mobile-link">Test Series</a>
+      <a href="about.html" class="mobile-link">About Us</a>
+
+      <a href="https://wa.link/w2i0o7" class="mt-10 inline-flex w-full sm:w-auto justify-center bg-white text-black px-8 py-4 rounded-2xl font-black uppercase text-sm hover:bg-primary transition">
+        Join Now
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  :root {
+    --primary: #DDB7FF;
+    --purple: #B76DFF;
+    --cyan: #4CD7F6;
+  }
+
+  .header-glass {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.22);
+    transition: .35s ease;
+  }
+
+  #header.scrolled .header-glass {
+    background: rgba(5, 5, 5, 0.86);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  }
+
+  .logo-text {
+    font-size: clamp(1.05rem, 4.8vw, 1.875rem);
+    max-width: 58vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .logo-sub {
+    font-size: clamp(6.5px, 1.8vw, 8px);
+    letter-spacing: clamp(.22em, 1vw, .45em);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: .3s ease;
+    padding: 8px 0;
+    color: #fff;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2.5px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    transition: .3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .premium-menu {
+    clip-path: circle(0% at 92% 6%);
+    transition: clip-path .75s cubic-bezier(.85,0,.15,1), opacity .45s ease;
+  }
+
+  .premium-menu.open {
+    clip-path: circle(150% at 92% 6%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    position: relative;
+    display: block;
+    width: fit-content;
+    color: white;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.055em;
+    font-size: clamp(2.65rem, 13vw, 6rem);
+    margin-bottom: 17px;
+    transition: .35s ease;
+  }
+
+  .mobile-link::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    transition: .35s ease;
+  }
+
+  .mobile-link.active {
+    color: var(--primary);
+  }
+
+  .mobile-link.active::after {
+    width: 55%;
+  }
+
+  .mobile-link:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    transform: translateX(12px);
+  }
+
+  .menu-btn span {
+    transition: .3s ease;
+  }
+
+  .menu-btn:hover span:nth-child(2) {
+    width: 20px;
+  }
+
+  @media (max-width: 420px) {
+    #header {
+      padding-left: 9px;
+      padding-right: 9px;
+    }
+
+    .header-glass {
+      border-radius: 20px;
+      padding-left: 14px;
+      padding-right: 12px;
+    }
+
+    .logo-text {
+      max-width: 64vw;
+      font-size: 1.12rem;
+    }
+
+    .logo-sub {
+      letter-spacing: .26em;
+    }
+
+    .mobile-link {
+      font-size: clamp(2.35rem, 12.4vw, 4.5rem);
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .logo-text {
+      max-width: 60vw;
+      font-size: 1rem;
+    }
+
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+  const header = document.getElementById("header");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+
+
+
+
+<!-- ---- menu button--- -->
+<style>
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  #header.scrolled .glass {
+    background: rgba(5, 5, 5, 0.82);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: .3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #DDB7FF, #4CD7F6);
+    transition: .3s ease;
+  }
+
+  .nav-link:hover {
+    color: #DDB7FF;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .premium-menu {
+    clip-path: circle(0% at 92% 6%);
+    transition: clip-path .75s cubic-bezier(.85,0,.15,1), opacity .45s ease;
+  }
+
+  .premium-menu.open {
+    clip-path: circle(150% at 92% 6%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    display: block;
+    color: white;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.05em;
+    font-size: clamp(3rem, 15vw, 6rem);
+    margin-bottom: 18px;
+    transition: .35s ease;
+  }
+
+  .mobile-link:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    transform: translateX(12px);
+  }
+
+  @media (max-width: 420px) {
+    #header {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .mobile-link {
+      margin-bottom: 14px;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+  const header = document.getElementById("header");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+<!-- main    -->
+<main>
+  <section class="refund-section">
+    <div class="refund-glow glow-left"></div>
+    <div class="refund-glow glow-right"></div>
+
+    <div class="refund-container">
+
+      <div class="refund-header">
+        <p>Legal Information</p>
+
+        <h1>
+          Refund &
+          <span>Cancellation Policy</span>
+        </h1>
+
+        <h4>Last Updated: 07/06/2026</h4>
+      </div>
+
+      <div class="refund-card">
+
+        <p>
+          At <strong>The PCB Point</strong>, we are committed to providing
+          high-quality mentorship and educational support.
+        </p>
+
+        <h2>1. Digital Services</h2>
+
+        <p>
+          Since our services involve mentorship, planning, counseling,
+          digital resources, and personalized support, refunds are not
+          applicable once the service has been activated or delivered.
+        </p>
+
+        <h2>2. Cancellation Before Service Activation</h2>
+
+        <p>
+          Students may request cancellation before onboarding or before
+          receiving any mentorship session, personalized plan, or resource
+          access.
+        </p>
+
+        <p>
+          Refund requests in such cases will be reviewed individually.
+        </p>
+
+        <h2>3. Non-Refundable Situations</h2>
+
+        <p>Refunds will not be provided for:</p>
+
+        <ul>
+          <li>Change of mind after enrollment</li>
+          <li>Lack of participation by the student</li>
+          <li>Failure to attend mentorship sessions</li>
+          <li>Dissatisfaction due to examination performance</li>
+          <li>Admission or rank-related outcomes</li>
+          <li>Partial usage of services</li>
+        </ul>
+
+        <h2>4. Exceptional Cases</h2>
+
+        <p>
+          In rare and genuine circumstances, refund requests may be reviewed
+          at the sole discretion of The PCB Point management.
+        </p>
+
+        <p>
+          The decision of The PCB Point shall be final.
+        </p>
+
+        <h2>5. Processing Time</h2>
+
+        <p>
+          If a refund is approved, the amount will be processed within
+          7–14 business days through the original payment method.
+        </p>
+
+        <h2>6. Contact</h2>
+
+        <p>
+          For cancellation or refund-related queries, please contact us
+          through the official contact details provided on our website.
+        </p>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+.refund-section{
+  position:relative;
+  padding:160px 20px 110px;
+  background:#050505;
+  overflow:hidden;
+  color:#fff;
+  font-family:"Plus Jakarta Sans",sans-serif;
+}
+
+.refund-glow{
+  position:absolute;
+  border-radius:999px;
+  filter:blur(140px);
+  pointer-events:none;
+}
+
+.glow-left{
+  width:520px;
+  height:520px;
+  top:-170px;
+  left:-170px;
+  background:rgba(142,224,0,.14);
+}
+
+.glow-right{
+  width:520px;
+  height:520px;
+  right:-170px;
+  bottom:-170px;
+  background:rgba(76,215,246,.14);
+}
+
+.refund-container{
+  max-width:1050px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.refund-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.refund-header p{
+  color:#8ee000;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.refund-header h1{
+  margin:0;
+  font-size:clamp(3rem,7vw,6rem);
+  line-height:1;
+  letter-spacing:-.06em;
+  font-weight:1000;
+}
+
+.refund-header h1 span{
+  display:block;
+  background:linear-gradient(
+    90deg,
+    #8ee000,
+    #ffffff,
+    #4cd7f6
+  );
+  background-size:250%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:refundShine 5s linear infinite;
+}
+
+@keyframes refundShine{
+  to{
+    background-position:250%;
+  }
+}
+
+.refund-header h4{
+  margin-top:22px;
+  color:#9f9f9f;
+  font-size:16px;
+  font-weight:700;
+}
+
+.refund-card{
+  padding:48px;
+  border-radius:36px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.075),
+    rgba(255,255,255,.025)
+  );
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:0 35px 110px rgba(0,0,0,.55);
+}
+
+.refund-card h2{
+  color:#fff;
+  font-size:26px;
+  font-weight:1000;
+  margin:38px 0 14px;
+  letter-spacing:-.03em;
+}
+
+.refund-card h2:first-of-type{
+  margin-top:20px;
+}
+
+.refund-card p{
+  color:#bdbdbd;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:600;
+  margin:0 0 16px;
+}
+
+.refund-card strong{
+  color:#fff;
+}
+
+.refund-card ul{
+  margin:12px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+
+.refund-card li{
+  color:#d6d6d6;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:700;
+  padding-left:30px;
+  position:relative;
+}
+
+.refund-card li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#8ee000;
+  font-weight:1000;
+}
+
+@media(max-width:700px){
+
+  .refund-section{
+    padding:135px 15px 80px;
+  }
+
+  .refund-header{
+    text-align:left;
+    margin-bottom:32px;
+  }
+
+  .refund-header p{
+    font-size:10px;
+    letter-spacing:.24em;
+  }
+
+  .refund-header h1{
+    font-size:clamp(2.4rem,12vw,4rem);
+  }
+
+  .refund-header h4{
+    font-size:14px;
+  }
+
+  .refund-card{
+    padding:30px 22px;
+    border-radius:28px;
+  }
+
+  .refund-card h2{
+    font-size:22px;
+  }
+
+  .refund-card p,
+  .refund-card li{
+    font-size:14px;
+  }
+}
+</style>
+
+
+<!-- main -->
+<footer class="footer-section">
+
+  <div class="footer-glow footer-glow-1"></div>
+  <div class="footer-glow footer-glow-2"></div>
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <h2>The PCB Point<span>.</span></h2>
+
+      <p>
+        India's trusted NEET mentorship platform helping students
+        achieve their dream medical college through personalized
+        guidance, mentorship and strategic preparation.
+      </p>
+
+      <div class="footer-social">
+
+        <a href="https://youtube.com/@thepcbpoint?si=tAAm3m1Ca0mM4nFd" target="_blank">
+          ▶ YouTube
+        </a>
+
+        <a href="https://www.instagram.com/the_pcb_point?igsh=MTN0cnU0ZGFmZzFrcg==" target="_blank">
+          📸 Instagram
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029VaANfoYL2AU8bsx7JZ0x" target="_blank">
+          💬 WhatsApp Channel
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CONTACTS -->
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+
+      <ul>
+        <li>
+          <a href="https://wa.me/916289459483" target="_blank">
+            WhatsApp: +91 62894 59483
+          </a>
+        </li>
+
+        <li>
+          <a href="tel:+916289459483">
+            Call: +91 62894 59483
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:thepcbpoint@gmail.com">
+            thepcbpoint@gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- LEGAL -->
+    <div class="footer-column">
+      <h3>Legal</h3>
+
+      <ul>
+        <li>
+          <a href="refundandcancellationpolicy.html">
+            Refund & Cancellation Policy
+          </a>
+        </li>
+
+        <li>
+          <a href="termsandconditions.html">
+            Terms & Conditions
+          </a>
+        </li>
+
+        <li>
+          <a href="mentorshiptermsandconditions.html">
+            Mentorship Terms & Conditions
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>
+      © 2026 The PCB Point. All Rights Reserved.
+    </p>
+
+    <p>
+      Designed & Developed by Soinech
+    </p>
+  </div>
+
+</footer>
+
+<style>
+.footer-section{
+  position:relative;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:90px 20px 30px;
+  overflow:hidden;
+}
+
+.footer-glow{
+  position:absolute;
+  border-radius:999px;
+  filter:blur(150px);
+  pointer-events:none;
+}
+
+.footer-glow-1{
+  width:450px;
+  height:450px;
+  left:-150px;
+  top:-100px;
+  background:rgba(142,224,0,.10);
+}
+
+.footer-glow-2{
+  width:450px;
+  height:450px;
+  right:-150px;
+  bottom:-100px;
+  background:rgba(76,215,246,.10);
+}
+
+.footer-container{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+
+.footer-brand h2{
+  color:#fff;
+  font-size:42px;
+  font-weight:1000;
+  margin-bottom:18px;
+}
+
+.footer-brand h2 span{
+  color:#8EE000;
+}
+
+.footer-brand p{
+  color:#9f9f9f;
+  line-height:1.9;
+  max-width:520px;
+  font-size:15px;
+}
+
+.footer-social{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.footer-social a{
+  text-decoration:none;
+  color:#fff;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  padding:14px 18px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.footer-social a:hover{
+  background:#8EE000;
+  color:#000;
+  transform:translateY(-3px);
+}
+
+.footer-column h3{
+  color:#fff;
+  font-size:20px;
+  margin-bottom:22px;
+  font-weight:900;
+}
+
+.footer-column ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-column ul li{
+  margin-bottom:14px;
+}
+
+.footer-column ul li a{
+  color:#9f9f9f;
+  text-decoration:none;
+  transition:.3s;
+  line-height:1.7;
+}
+
+.footer-column ul li a:hover{
+  color:#8EE000;
+  padding-left:5px;
+}
+
+.footer-bottom{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:70px auto 0;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.footer-bottom p{
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .footer-brand h2{
+    font-size:34px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:600px){
+
+  .footer-section{
+    padding:70px 15px 25px;
+  }
+
+  .footer-brand h2{
+    font-size:30px;
+  }
+
+  .footer-brand p{
+    font-size:14px;
+  }
+
+  .footer-social{
+    flex-direction:column;
+  }
+
+  .footer-social a{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .footer-column h3{
+    font-size:18px;
+  }
+
+  .footer-bottom p{
+    font-size:13px;
+  }
+}
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("open");
+    document.body.style.overflow = "auto";
+  });
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      document.body.style.overflow = "auto";
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("header");
+    if (window.scrollY > 40) {
+      header.classList.add("backdrop-blur-xl");
+    } else {
+      header.classList.remove("backdrop-blur-xl");
+    }
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

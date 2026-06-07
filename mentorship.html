@@ -958,7 +958,6 @@ coursePrev?.addEventListener("click", () => {
       </h4>
     </div>
 
-    <!-- MOBILE ARROWS -->
     <div class="plan-controls">
       <button id="planPrev">‹</button>
       <button id="planNext">›</button>
@@ -966,15 +965,15 @@ coursePrev?.addEventListener("click", () => {
 
     <div class="plans-grid" id="plansSlider">
 
-      <!-- ELITE -->
       <div class="plan-card">
         <div class="plan-tag">Starter</div>
-
         <h3>Elite Plan</h3>
 
         <p class="plan-subtitle">
           India's Best Personalized NEET Mentorship Program
         </p>
+
+        <div class="plan-price">₹15,999</div>
 
         <a href="https://wa.link/m98t9r" class="plan-btn">
           Join Elite Plan
@@ -990,45 +989,41 @@ coursePrev?.addEventListener("click", () => {
         </ul>
       </div>
 
-      <!-- PRO -->
       <div class="plan-card featured">
+        <div class="popular-ribbon">POPULAR</div>
 
-  <div class="popular-ribbon">POPULAR</div>
+        <div class="plan-tag">Most Popular</div>
+        <h3>Pro Plan</h3>
 
-  <div class="plan-tag">Most Popular</div>
+        <p class="plan-subtitle">
+          Top Quality Mentorship + Offline Test Series
+        </p>
 
-  <h3>Pro Plan</h3>
+        <div class="plan-price">₹16,999</div>
 
-  <p class="plan-subtitle">
-    Top Quality Mentorship + Offline Test Series
-  </p>
+        <a href="https://wa.link/jsusb6" class="plan-btn">
+          Join Pro Plan
+        </a>
 
-  <div class="plan-price">₹16,999</div>
+        <ul>
+          <li>✅ 3-Level Mentorship System</li>
+          <li>✅ Private Group</li>
+          <li>✅ Mentorship Kit Box</li>
+          <li>✅ Dedicated Doubt Support</li>
+          <li>✅ Online Test Series</li>
+          <li>✴️ Offline Test Series</li>
+        </ul>
+      </div>
 
-  <a href="https://wa.link/jsusb6" class="plan-btn">
-    Join Pro Plan
-  </a>
-
-  <ul>
-    <li>✅ 3-Level Mentorship System</li>
-    <li>✅ Private Group</li>
-    <li>✅ Mentorship Kit Box</li>
-    <li>✅ Dedicated Doubt Support</li>
-    <li>✅ Online Test Series</li>
-    <li>✴️ Offline Test Series</li>
-  </ul>
-
-</div>
-
-      <!-- YAKEEN -->
       <div class="plan-card">
         <div class="plan-tag">Best Value</div>
-
         <h3>Yakeen Plan</h3>
 
         <p class="plan-subtitle">
           Mentorship + Physics Wallah Yakeen Batch
         </p>
+
+        <div class="plan-price">₹19,999</div>
 
         <a href="https://wa.link/q3i2wk" class="plan-btn">
           Join Yakeen Plan
@@ -1045,15 +1040,15 @@ coursePrev?.addEventListener("click", () => {
         </ul>
       </div>
 
-      <!-- MAX -->
       <div class="plan-card premium-card">
         <div class="plan-tag premium-tag">Ultimate</div>
-
         <h3>Max Plan</h3>
 
         <p class="plan-subtitle">
           Complete Premium NEET Success Package
         </p>
+
+        <div class="plan-price premium-price">₹29,999</div>
 
         <a href="https://wa.link/l1sviy" class="plan-btn premium-btn">
           Join Max Plan
@@ -1072,9 +1067,7 @@ coursePrev?.addEventListener("click", () => {
       </div>
 
     </div>
-
   </div>
-
 </section>
 
 <style>
@@ -1090,33 +1083,6 @@ coursePrev?.addEventListener("click", () => {
   margin:auto;
   position:relative;
   z-index:2;
-}
-.featured{
-  border-color:#8EE000;
-  box-shadow:0 0 50px rgba(142,224,0,.15);
-  overflow:hidden;
-}
-
-.popular-ribbon{
-  position:absolute;
-  top:18px;
-  right:-45px;
-  width:170px;
-  text-align:center;
-  background:linear-gradient(
-    90deg,
-    #8EE000,
-    #bfff4d
-  );
-  color:#000;
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:.15em;
-  padding:10px 0;
-  transform:rotate(45deg);
-  box-shadow:0 10px 25px rgba(142,224,0,.35);
-  z-index:10;
-  text-transform:uppercase;
 }
 
 .plans-heading{
@@ -1169,6 +1135,7 @@ coursePrev?.addEventListener("click", () => {
   border:1px solid rgba(255,255,255,.12);
   backdrop-filter:blur(24px);
   transition:.4s;
+  overflow:hidden;
 }
 
 .plan-card:hover{
@@ -1183,6 +1150,23 @@ coursePrev?.addEventListener("click", () => {
 .premium-card{
   border-color:#4CD7F6;
   box-shadow:0 0 60px rgba(76,215,246,.15);
+}
+
+.popular-ribbon{
+  position:absolute;
+  top:20px;
+  right:-48px;
+  width:175px;
+  padding:10px 0;
+  background:linear-gradient(90deg,#8EE000,#d7ff73);
+  color:#000;
+  text-align:center;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.16em;
+  transform:rotate(45deg);
+  box-shadow:0 10px 25px rgba(142,224,0,.35);
+  z-index:10;
 }
 
 .plan-tag{
@@ -1213,6 +1197,33 @@ coursePrev?.addEventListener("click", () => {
   color:#9f9f9f;
   line-height:1.7;
   min-height:80px;
+}
+
+.plan-price{
+  font-size:42px;
+  font-weight:1000;
+  color:white;
+  margin:18px 0 8px;
+  letter-spacing:-1px;
+}
+
+.plan-price::after{
+  content:" / Full Course";
+  display:block;
+  font-size:12px;
+  color:#8EE000;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-top:6px;
+  font-weight:900;
+}
+
+.premium-price{
+  color:#4CD7F6;
+}
+
+.premium-price::after{
+  color:#4CD7F6;
 }
 
 .plan-btn{
@@ -2115,14 +2126,516 @@ planPrev?.addEventListener("click",()=>{
   });
 </script>
 
+<!-- TERMS BUTTON SECTION -->
+<section class="terms-btn-section">
+  <a href="terms.html" class="terms-btn">
+    Mentorship Terms & Conditions
+  </a>
+</section>
+
+<style>
+.terms-btn-section{
+  padding: 45px 20px 70px;
+  background:#050505;
+  text-align:center;
+}
+
+.terms-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 34px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#8ee000,#4cd7f6);
+  color:#000;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:1000;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  box-shadow:0 18px 45px rgba(142,224,0,.22);
+  transition:.35s ease;
+}
+
+.terms-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 25px 70px rgba(76,215,246,.28);
+}
+
+@media(max-width:600px){
+  .terms-btn-section{
+    padding:35px 15px 55px;
+  }
+
+  .terms-btn{
+    width:100%;
+    padding:17px 20px;
+    font-size:12px;
+    border-radius:16px;
+  }
+}
+</style>
+
 
 <!-- main -->
-<footer class="border-t border-white/10 py-10 px-5">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-5">
-    <h3 class="text-white text-2xl font-black">The PCB Point<span class="text-primary">.</span></h3>
-    <p class="text-zinc-500 text-sm">© 2026 Soinech. All rights reserved.</p>
+<footer class="footer-section">
+
+  <div class="footer-glow footer-glow-1"></div>
+  <div class="footer-glow footer-glow-2"></div>
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <h2>The PCB Point<span>.</span></h2>
+
+      <p>
+        India's trusted NEET mentorship platform helping students
+        achieve their dream medical college through personalized
+        guidance, mentorship and strategic preparation.
+      </p>
+
+      <div class="footer-social">
+
+        <a href="https://youtube.com/@thepcbpoint?si=tAAm3m1Ca0mM4nFd" target="_blank">
+          ▶ YouTube
+        </a>
+
+        <a href="https://www.instagram.com/the_pcb_point?igsh=MTN0cnU0ZGFmZzFrcg==" target="_blank">
+          📸 Instagram
+        </a>
+
+        <a href="https://whatsapp.com/channel/0029VaANfoYL2AU8bsx7JZ0x" target="_blank">
+          💬 WhatsApp Channel
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CONTACTS -->
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+
+      <ul>
+        <li>
+          <a href="https://wa.me/916289459483" target="_blank">
+            WhatsApp: +91 62894 59483
+          </a>
+        </li>
+
+        <li>
+          <a href="tel:+916289459483">
+            Call: +91 62894 59483
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:thepcbpoint@gmail.com">
+            thepcbpoint@gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- LEGAL -->
+    <div class="footer-column">
+      <h3>Legal</h3>
+
+      <ul>
+        <li>
+          <a href="refundandcancellationpolicy.html">
+            Refund & Cancellation Policy
+          </a>
+        </li>
+
+        <li>
+          <a href="termsandconditions.html">
+            Terms & Conditions
+          </a>
+        </li>
+
+        <li>
+          <a href="mentorshiptermsandconditions.html">
+            Mentorship Terms & Conditions
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>
+      © 2026 The PCB Point. All Rights Reserved.
+    </p>
+
+    <p>
+      Designed & Developed by Soinech
+    </p>
+  </div>
+
 </footer>
+
+<style>
+.footer-section{
+  position:relative;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:90px 20px 30px;
+  overflow:hidden;
+}
+
+.footer-glow{
+  position:absolute;
+  border-radius:999px;
+  filter:blur(150px);
+  pointer-events:none;
+}
+
+.footer-glow-1{
+  width:450px;
+  height:450px;
+  left:-150px;
+  top:-100px;
+  background:rgba(142,224,0,.10);
+}
+
+.footer-glow-2{
+  width:450px;
+  height:450px;
+  right:-150px;
+  bottom:-100px;
+  background:rgba(76,215,246,.10);
+}
+
+.footer-container{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+
+.footer-brand h2{
+  color:#fff;
+  font-size:42px;
+  font-weight:1000;
+  margin-bottom:18px;
+}
+
+.footer-brand h2 span{
+  color:#8EE000;
+}
+
+.footer-brand p{
+  color:#9f9f9f;
+  line-height:1.9;
+  max-width:520px;
+  font-size:15px;
+}
+
+.footer-social{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.footer-social a{
+  text-decoration:none;
+  color:#fff;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  padding:14px 18px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.footer-social a:hover{
+  background:#8EE000;
+  color:#000;
+  transform:translateY(-3px);
+}
+
+.footer-column h3{
+  color:#fff;
+  font-size:20px;
+  margin-bottom:22px;
+  font-weight:900;
+}
+
+.footer-column ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-column ul li{
+  margin-bottom:14px;
+}
+
+.footer-column ul li a{
+  color:#9f9f9f;
+  text-decoration:none;
+  transition:.3s;
+  line-height:1.7;
+}
+
+.footer-column ul li a:hover{
+  color:#8EE000;
+  padding-left:5px;
+}
+
+.footer-bottom{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:70px auto 0;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.footer-bottom p{
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .footer-brand h2{
+    font-size:34px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:600px){
+
+  .footer-section{
+    padding:70px 15px 25px;
+  }
+
+  .footer-brand h2{
+    font-size:30px;
+  }
+
+  .footer-brand p{
+    font-size:14px;
+  }
+
+  .footer-social{
+    flex-direction:column;
+  }
+
+  .footer-social a{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .footer-column h3{
+    font-size:18px;
+  }
+
+  .footer-bottom p{
+    font-size:13px;
+  }
+}
+</style>
+
+<style>
+.footer-section{
+  position:relative;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:90px 20px 30px;
+  overflow:hidden;
+}
+
+.footer-glow{
+  position:absolute;
+  border-radius:999px;
+  filter:blur(150px);
+  pointer-events:none;
+}
+
+.footer-glow-1{
+  width:450px;
+  height:450px;
+  left:-150px;
+  top:-100px;
+  background:rgba(142,224,0,.10);
+}
+
+.footer-glow-2{
+  width:450px;
+  height:450px;
+  right:-150px;
+  bottom:-100px;
+  background:rgba(76,215,246,.10);
+}
+
+.footer-container{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+}
+
+.footer-brand h2{
+  color:#fff;
+  font-size:42px;
+  font-weight:1000;
+  margin-bottom:18px;
+}
+
+.footer-brand h2 span{
+  color:#8EE000;
+}
+
+.footer-brand p{
+  color:#9f9f9f;
+  line-height:1.9;
+  max-width:520px;
+  font-size:15px;
+}
+
+.footer-social{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.footer-social a{
+  text-decoration:none;
+  color:#fff;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  padding:14px 18px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.footer-social a:hover{
+  background:#8EE000;
+  color:#000;
+  transform:translateY(-3px);
+}
+
+.footer-column h3{
+  color:#fff;
+  font-size:20px;
+  margin-bottom:22px;
+  font-weight:900;
+}
+
+.footer-column ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-column ul li{
+  margin-bottom:14px;
+}
+
+.footer-column ul li a{
+  color:#9f9f9f;
+  text-decoration:none;
+  transition:.3s;
+  line-height:1.7;
+}
+
+.footer-column ul li a:hover{
+  color:#8EE000;
+  padding-left:5px;
+}
+
+.footer-bottom{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  margin:70px auto 0;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.footer-bottom p{
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .footer-brand h2{
+    font-size:34px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:600px){
+
+  .footer-section{
+    padding:70px 15px 25px;
+  }
+
+  .footer-brand h2{
+    font-size:30px;
+  }
+
+  .footer-brand p{
+    font-size:14px;
+  }
+
+  .footer-social{
+    flex-direction:column;
+  }
+
+  .footer-social a{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .footer-column h3{
+    font-size:18px;
+  }
+
+  .footer-bottom p{
+    font-size:13px;
+  }
+}
+</style>
 
 <script>
   const menuBtn = document.getElementById("menuBtn");
