@@ -2128,23 +2128,39 @@ planPrev?.addEventListener("click",()=>{
 
 <!-- TERMS BUTTON SECTION -->
 <section class="terms-btn-section">
-  <a href="mentorshiptermsandconditions.html" class="terms-btn">
-    Mentorship Terms & Conditions
-  </a>
+  <div class="terms-box">
+    <a href="mentorshiptermsandconditions.html" class="terms-btn">
+      Mentorship Terms & Conditions
+    </a>
+
+    <p class="terms-note">
+      <span>Note:</span> Please view the T&amp;C before joining the mentorship program.
+    </p>
+  </div>
 </section>
 
 <style>
 .terms-btn-section{
-  padding: 45px 20px 70px;
+  padding:50px 20px 75px;
   background:#050505;
   text-align:center;
+}
+
+.terms-box{
+  max-width:720px;
+  margin:0 auto;
+  padding:30px 22px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
 }
 
 .terms-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:18px 34px;
+  padding:18px 36px;
   border-radius:18px;
   background:linear-gradient(135deg,#8ee000,#4cd7f6);
   color:#000;
@@ -2158,20 +2174,44 @@ planPrev?.addEventListener("click",()=>{
 }
 
 .terms-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 25px 70px rgba(76,215,246,.28);
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:0 25px 70px rgba(76,215,246,.32);
+}
+
+.terms-note{
+  margin:18px auto 0;
+  max-width:560px;
+  color:#bdbdbd;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.7;
+}
+
+.terms-note span{
+  color:#8ee000;
+  font-weight:900;
 }
 
 @media(max-width:600px){
   .terms-btn-section{
-    padding:35px 15px 55px;
+    padding:38px 15px 60px;
+  }
+
+  .terms-box{
+    padding:24px 16px;
+    border-radius:22px;
   }
 
   .terms-btn{
     width:100%;
-    padding:17px 20px;
+    padding:17px 18px;
     font-size:12px;
     border-radius:16px;
+  }
+
+  .terms-note{
+    font-size:13px;
+    line-height:1.6;
   }
 }
 </style>
