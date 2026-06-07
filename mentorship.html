@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Pcb Point</title>
+  <link rel="icon" type="image/png" href="logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -538,7 +539,6 @@
     </div>
     
 
-    <!-- PREMIUM SQUARE IMAGE COURSE / MENTORSHIP SLIDER -->
 <section id="courses" class="course-section">
   <div class="course-bg-glow course-bg-1"></div>
   <div class="course-bg-glow course-bg-2"></div>
@@ -549,13 +549,18 @@
       <h2>
         Explore <span>Course Details</span>
       </h2>
-      <h4>Swipe / slide through all mentorship pages</h4>
+      <h4>Use arrows to slide through all mentorship pages</h4>
+    </div>
+
+    <!-- SLIDER BUTTONS -->
+    <div class="course-controls">
+      <button type="button" id="coursePrev">‹</button>
+      <button type="button" id="courseNext">›</button>
     </div>
 
     <div class="course-slider-wrap">
-      <div class="course-slider">
+      <div class="course-slider" id="courseSlider">
 
-        <!-- 16 IMAGES -->
         <div class="course-card">
           <img src="Assets/PCB Point Mentorship 2027-images-0.jpg" alt="PCB Point Mentorship Page 1">
         </div>
@@ -620,277 +625,317 @@
           <img src="Assets/PCB Point Mentorship 2027-images-15.jpg" alt="PCB Point Mentorship Page 16">
         </div>
 
-        <!-- DUPLICATE FOR INFINITE LOOP -->
-        <div class="course-card">
-          <img src="Assets/PCB Point Mentorship 2027-images-0.jpg" alt="PCB Point Mentorship Page 1">
-        </div>
-
-        <div class="course-card">
-          <img src="Assets/PCB Point Mentorship 2027-images-1.jpg" alt="PCB Point Mentorship Page 2">
-        </div>
-
-        <div class="course-card">
-          <img src="Assets/PCB Point Mentorship 2027-images-2.jpg" alt="PCB Point Mentorship Page 3">
-        </div>
-
-        <div class="course-card">
-          <img src="Assets/PCB Point Mentorship 2027-images-3.jpg" alt="PCB Point Mentorship Page 4">
-        </div>
-
       </div>
     </div>
   </div>
 </section>
 
 <style>
+.course-section {
+  position: relative;
+  padding: 90px 0;
+  background: #050505;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.course-bg-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+.course-bg-1 {
+  width: 520px;
+  height: 520px;
+  top: -160px;
+  left: -140px;
+  background: rgba(132, 204, 22, 0.16);
+}
+
+.course-bg-2 {
+  width: 520px;
+  height: 520px;
+  right: -160px;
+  bottom: -180px;
+  background: rgba(76, 215, 246, 0.14);
+}
+
+.course-container {
+  position: relative;
+  z-index: 2;
+}
+
+.course-head {
+  max-width: 1280px;
+  margin: 0 auto 28px;
+  padding: 0 20px;
+}
+
+.course-head p {
+  color: #8ee000;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.course-head h2 {
+  color: #fff;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  font-weight: 1000;
+  margin: 0;
+}
+
+.course-head h2 span {
+  background: linear-gradient(90deg, #8ee000, #ffffff, #4cd7f6);
+  background-size: 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: courseTextShine 5s linear infinite;
+}
+
+.course-head h4 {
+  color: #888;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+@keyframes courseTextShine {
+  to {
+    background-position: 250%;
+  }
+}
+
+.course-controls {
+  max-width: 1280px;
+  margin: 0 auto 18px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.course-controls button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #8ee000, #4cd7f6);
+  color: #000;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 1000;
+  cursor: pointer;
+  box-shadow: 0 14px 35px rgba(142, 224, 0, 0.25);
+  transition: 0.3s ease;
+}
+
+.course-controls button:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.course-slider-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 15px 0 35px;
+}
+
+.course-slider-wrap::before,
+.course-slider-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.course-slider-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, #050505, transparent);
+}
+
+.course-slider-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, #050505, transparent);
+}
+
+.course-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0 20px;
+}
+
+.course-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.course-card {
+  position: relative;
+  flex: 0 0 430px;
+  aspect-ratio: 1 / 1;
+  scroll-snap-align: center;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(142, 224, 0, 0.22);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: 0.4s ease;
+}
+
+.course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 45%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: 0.7s ease;
+}
+
+.course-card:hover::before {
+  transform: translateX(130%);
+}
+
+.course-card:hover {
+  border-color: rgba(142, 224, 0, 0.55);
+  box-shadow:
+    0 34px 110px rgba(0, 0, 0, 0.75),
+    0 0 45px rgba(142, 224, 0, 0.18);
+}
+
+.course-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 900px) {
   .course-section {
-    position: relative;
-    padding: 90px 0;
-    background: #050505;
-    overflow: hidden;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    padding: 75px 0;
   }
 
-  .course-bg-glow {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(140px);
-    pointer-events: none;
+  .course-card {
+    flex-basis: 360px;
+    border-radius: 28px;
   }
 
-  .course-bg-1 {
-    width: 520px;
-    height: 520px;
-    top: -160px;
-    left: -140px;
-    background: rgba(132, 204, 22, 0.16);
-  }
-
-  .course-bg-2 {
-    width: 520px;
-    height: 520px;
-    right: -160px;
-    bottom: -180px;
-    background: rgba(76, 215, 246, 0.14);
-  }
-
-  .course-container {
-    position: relative;
-    z-index: 2;
-  }
-
-  .course-head {
-    max-width: 1280px;
-    margin: 0 auto 45px;
-    padding: 0 20px;
-  }
-
-  .course-head p {
-    color: #8ee000;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .course-head h2 {
-    color: #fff;
-    font-size: clamp(2.6rem, 7vw, 6rem);
-    line-height: 0.95;
-    letter-spacing: -0.06em;
-    font-weight: 1000;
-    margin: 0;
-  }
-
-  .course-head h2 span {
-    background: linear-gradient(90deg, #8ee000, #ffffff, #4cd7f6);
-    background-size: 250%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: courseTextShine 5s linear infinite;
-  }
-
-  .course-head h4 {
-    color: #888;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 18px;
-  }
-
-  @keyframes courseTextShine {
-    to {
-      background-position: 250%;
-    }
-  }
-
-  .course-slider-wrap {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 15px 0 35px;
+  .course-slider {
+    gap: 18px;
   }
 
   .course-slider-wrap::before,
   .course-slider-wrap::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 150px;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none;
+    width: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .course-section {
+    padding: 65px 0;
   }
 
-  .course-slider-wrap::before {
-    left: 0;
-    background: linear-gradient(90deg, #050505, transparent);
+  .course-head {
+    margin-bottom: 22px;
   }
 
-  .course-slider-wrap::after {
-    right: 0;
-    background: linear-gradient(270deg, #050505, transparent);
+  .course-head p {
+    font-size: 10px;
+    letter-spacing: 0.25em;
   }
 
-  .course-slider {
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    animation: courseSlide 55s linear infinite;
-    will-change: transform;
+  .course-head h2 {
+    font-size: clamp(2.2rem, 12vw, 3.8rem);
+    line-height: 1;
   }
 
-  .course-slider:hover {
-    animation-play-state: paused;
+  .course-head h4 {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
-  @keyframes courseSlide {
-    from {
-      transform: translate3d(0, 0, 0);
-    }
-    to {
-      transform: translate3d(-50%, 0, 0);
-    }
+  .course-controls {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .course-controls button {
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
   }
 
   .course-card {
-    position: relative;
-    flex: 0 0 430px;
-    aspect-ratio: 1 / 1;
-    border-radius: 32px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(142, 224, 0, 0.22);
-    box-shadow:
-      0 28px 90px rgba(0, 0, 0, 0.55),
-      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    transition: 0.4s ease;
+    flex-basis: 285px;
+    border-radius: 24px;
   }
 
-  .course-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background: linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.18) 45%,
-      transparent 65%
-    );
-    transform: translateX(-130%);
-    transition: 0.7s ease;
+  .course-slider {
+    gap: 14px;
+    padding: 0 14px;
   }
 
-  .course-card:hover::before {
-    transform: translateX(130%);
+  .course-slider-wrap::before,
+  .course-slider-wrap::after {
+    width: 35px;
   }
+}
 
-  .course-card:hover {
-    border-color: rgba(142, 224, 0, 0.55);
-    box-shadow:
-      0 34px 110px rgba(0, 0, 0, 0.75),
-      0 0 45px rgba(142, 224, 0, 0.18);
+@media (max-width: 380px) {
+  .course-card {
+    flex-basis: 255px;
+    border-radius: 22px;
   }
-
-  .course-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-
-  @media (max-width: 900px) {
-    .course-section {
-      padding: 75px 0;
-    }
-
-    .course-card {
-      flex-basis: 360px;
-      border-radius: 28px;
-    }
-
-    .course-slider {
-      gap: 18px;
-      animation-duration: 45s;
-    }
-
-    .course-slider-wrap::before,
-    .course-slider-wrap::after {
-      width: 70px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .course-section {
-      padding: 65px 0;
-    }
-
-    .course-head {
-      margin-bottom: 30px;
-    }
-
-    .course-head p {
-      font-size: 10px;
-      letter-spacing: 0.25em;
-    }
-
-    .course-head h2 {
-      font-size: clamp(2.2rem, 12vw, 3.8rem);
-      line-height: 1;
-    }
-
-    .course-head h4 {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .course-card {
-      flex-basis: 285px;
-      border-radius: 24px;
-    }
-
-    .course-slider {
-      gap: 14px;
-      animation-duration: 38s;
-    }
-
-    .course-slider-wrap::before,
-    .course-slider-wrap::after {
-      width: 35px;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .course-card {
-      flex-basis: 255px;
-      border-radius: 22px;
-    }
-  }
+}
 </style>
+
+<script>
+const courseSlider = document.getElementById("courseSlider");
+const coursePrev = document.getElementById("coursePrev");
+const courseNext = document.getElementById("courseNext");
+
+function courseSlideWidth() {
+  const card = courseSlider.querySelector(".course-card");
+  const gap = window.innerWidth <= 600 ? 14 : window.innerWidth <= 900 ? 18 : 24;
+  return card.offsetWidth + gap;
+}
+
+courseNext?.addEventListener("click", () => {
+  courseSlider.scrollBy({
+    left: courseSlideWidth(),
+    behavior: "smooth"
+  });
+});
+
+coursePrev?.addEventListener("click", () => {
+  courseSlider.scrollBy({
+    left: -courseSlideWidth(),
+    behavior: "smooth"
+  });
+});
+</script>
 
 <!-- PREMIUM MENTORSHIP PLANS -->
 <section id="plans" class="plans-section">
@@ -931,7 +976,7 @@
           India's Best Personalized NEET Mentorship Program
         </p>
 
-        <a href="https://wa.me/916289459483" class="plan-btn">
+        <a href="https://wa.link/m98t9r" class="plan-btn">
           Join Elite Plan
         </a>
 
@@ -955,7 +1000,7 @@
           Top Quality Mentorship + Offline Test Series
         </p>
 
-        <a href="https://wa.me/916289459483" class="plan-btn">
+        <a href="https://wa.link/jsusb6" class="plan-btn">
           Join Pro Plan
         </a>
 
@@ -979,7 +1024,7 @@
           Mentorship + Physics Wallah Yakeen Batch
         </p>
 
-        <a href="https://wa.me/916289459483" class="plan-btn">
+        <a href="https://wa.link/q3i2wk" class="plan-btn">
           Join Yakeen Plan
         </a>
 
@@ -1004,7 +1049,7 @@
           Complete Premium NEET Success Package
         </p>
 
-        <a href="https://wa.me/916289459483" class="plan-btn premium-btn">
+        <a href="https://wa.link/l1sviy" class="plan-btn premium-btn">
           Join Max Plan
         </a>
 
@@ -1677,10 +1722,11 @@ planPrev?.addEventListener("click",()=>{
     }
   }
 
-  @media (max-width: 620px) {
-    .mentor-page {
-      padding: 95px 0 80px;
-    }
+ @media (max-width: 620px) {
+  .mentor-page {
+    padding: 150px 0 80px;
+  }
+}
 
     .mentor-hero {
       margin-bottom: 35px;
