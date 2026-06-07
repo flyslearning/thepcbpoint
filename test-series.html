@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pcb Point</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#DDB7FF",
+            purple: "#B76DFF",
+            cyan: "#4CD7F6",
+            green: "#4AE176",
+            dark: "#050505"
+          },
+          fontFamily: {
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Outfit", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    html, body { margin: 0; overflow-x: hidden; background: #050505; }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(18px);
+      transition: .4s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-8px);
+      border-color: rgba(183,109,255,.45);
+      box-shadow: 0 25px 60px rgba(0,0,0,.45);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg,#fff,#DDB7FF,#4CD7F6,#fff);
+      background-size: 250%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 250%; }
+    }
+
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu {
+      clip-path: circle(0% at 90% 10%);
+      transition: .7s ease;
+    }
+
+    .menu.open {
+      clip-path: circle(160% at 90% 10%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: scroll 25s linear infinite;
+    }
+
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      to { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+
+<body class="font-body text-zinc-300 bg-dark">
+
+<!-- PREMIUM RESPONSIVE HEADER -->
+<!-- PREMIUM RESPONSIVE HEADER - THE PCB POINT -->
+<header id="header" class="fixed top-0 left-0 w-full z-50 px-3 sm:px-4 py-3 sm:py-4">
+  <div class="max-w-7xl mx-auto header-glass rounded-2xl sm:rounded-3xl px-4 sm:px-5 md:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+
+    <!-- LOGO -->
+    <a href="/" class="logo-wrap min-w-0 flex flex-col leading-none">
+      <span class="logo-text text-white font-display font-black tracking-tight">
+        The PCB Point<span class="text-primary">.</span>
+      </span>
+      <span class="logo-sub text-zinc-500 font-black uppercase mt-1">
+        AI Education
+      </span>
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex items-center gap-7 xl:gap-9 text-[11px] font-black uppercase tracking-[.22em] text-white">
+      <a href="/" class="nav-link">Home</a>
+      <a href="mentoship.html" class="nav-link active">Mentorship</a>
+      <a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="test-series.html" class="nav-link">Test Series</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- ACTIONS -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="#join" class="hidden sm:inline-flex bg-white text-black px-5 md:px-6 py-3 rounded-full text-[10px] md:text-xs font-black uppercase hover:bg-primary transition">
+        Join Now
+      </a>
+
+      <button id="menuBtn" aria-label="Open menu" class="menu-btn w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1.5 hover:bg-white/10 transition">
+        <span class="w-5 h-[2px] bg-white rounded-full"></span>
+        <span class="w-3 h-[2px] bg-primary rounded-full"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="menu" class="premium-menu fixed inset-0 bg-[#050505] opacity-0 pointer-events-none z-[60] flex flex-col justify-center px-6 sm:px-10">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute -top-20 -left-20 w-72 h-72 bg-purple/20 rounded-full blur-[100px]"></div>
+      <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-cyan/20 rounded-full blur-[100px]"></div>
+      <h2 class="absolute bottom-8 left-4 text-[17vw] sm:text-[14vw] font-black text-white/[0.035] leading-none uppercase">
+        PCB POINT
+      </h2>
+    </div>
+
+    <button id="closeBtn" aria-label="Close menu" class="absolute top-6 right-5 sm:top-8 sm:right-8 text-white border border-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full hover:bg-white hover:text-black transition z-10">
+      ✕
+    </button>
+
+    <div class="relative z-10">
+      <p class="text-primary text-[10px] sm:text-xs uppercase tracking-[.45em] font-black mb-8">
+        Menu
+      </p>
+
+      <a href="/" class="mobile-link">Home</a>
+      <a href="mentoship.html" class="mobile-link active">Mentorship</a>
+      <a href="testimonials.html" class="mobile-link">Testimonials</a>
+      <a href="test-series.html" class="mobile-link">Test Series</a>
+      <a href="about.html" class="mobile-link">About Us</a>
+
+      <a href="#join" class="mt-10 inline-flex w-full sm:w-auto justify-center bg-white text-black px-8 py-4 rounded-2xl font-black uppercase text-sm hover:bg-primary transition">
+        Join Now
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  :root {
+    --primary: #DDB7FF;
+    --purple: #B76DFF;
+    --cyan: #4CD7F6;
+  }
+
+  .header-glass {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.22);
+    transition: .35s ease;
+  }
+
+  #header.scrolled .header-glass {
+    background: rgba(5, 5, 5, 0.86);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  }
+
+  .logo-text {
+    font-size: clamp(1.05rem, 4.8vw, 1.875rem);
+    max-width: 58vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .logo-sub {
+    font-size: clamp(6.5px, 1.8vw, 8px);
+    letter-spacing: clamp(.22em, 1vw, .45em);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: .3s ease;
+    padding: 8px 0;
+    color: #fff;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2.5px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    transition: .3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .premium-menu {
+    clip-path: circle(0% at 92% 6%);
+    transition: clip-path .75s cubic-bezier(.85,0,.15,1), opacity .45s ease;
+  }
+
+  .premium-menu.open {
+    clip-path: circle(150% at 92% 6%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    position: relative;
+    display: block;
+    width: fit-content;
+    color: white;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.055em;
+    font-size: clamp(2.65rem, 13vw, 6rem);
+    margin-bottom: 17px;
+    transition: .35s ease;
+  }
+
+  .mobile-link::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    transition: .35s ease;
+  }
+
+  .mobile-link.active {
+    color: var(--primary);
+  }
+
+  .mobile-link.active::after {
+    width: 55%;
+  }
+
+  .mobile-link:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    transform: translateX(12px);
+  }
+
+  .menu-btn span {
+    transition: .3s ease;
+  }
+
+  .menu-btn:hover span:nth-child(2) {
+    width: 20px;
+  }
+
+  @media (max-width: 420px) {
+    #header {
+      padding-left: 9px;
+      padding-right: 9px;
+    }
+
+    .header-glass {
+      border-radius: 20px;
+      padding-left: 14px;
+      padding-right: 12px;
+    }
+
+    .logo-text {
+      max-width: 64vw;
+      font-size: 1.12rem;
+    }
+
+    .logo-sub {
+      letter-spacing: .26em;
+    }
+
+    .mobile-link {
+      font-size: clamp(2.35rem, 12.4vw, 4.5rem);
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .logo-text {
+      max-width: 60vw;
+      font-size: 1rem;
+    }
+
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+  const header = document.getElementById("header");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+
+
+
+
+<!-- ---- menu button--- -->
+<style>
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  #header.scrolled .glass {
+    background: rgba(5, 5, 5, 0.82);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: .3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #DDB7FF, #4CD7F6);
+    transition: .3s ease;
+  }
+
+  .nav-link:hover {
+    color: #DDB7FF;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .premium-menu {
+    clip-path: circle(0% at 92% 6%);
+    transition: clip-path .75s cubic-bezier(.85,0,.15,1), opacity .45s ease;
+  }
+
+  .premium-menu.open {
+    clip-path: circle(150% at 92% 6%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    display: block;
+    color: white;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.05em;
+    font-size: clamp(3rem, 15vw, 6rem);
+    margin-bottom: 18px;
+    transition: .35s ease;
+  }
+
+  .mobile-link:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    transform: translateX(12px);
+  }
+
+  @media (max-width: 420px) {
+    #header {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .mobile-link {
+      margin-bottom: 14px;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+  const header = document.getElementById("header");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+<!-- main    -->
+
+<main>
+  <!-- FULL TEST SERIES MAIN SECTION -->
+  <section id="test-series" class="test-series-section">
+    <div class="test-glow glow-one"></div>
+    <div class="test-glow glow-two"></div>
+
+    <div class="test-container">
+
+      <!-- TOP HERO -->
+      <div class="test-hero-top">
+        <p class="test-kicker">PCB Point Test Series</p>
+
+        <h1>
+          Choose the Test Series That
+          <span>Strengthens Your Preparation</span>
+        </h1>
+
+        <p class="test-hero-desc">
+          Practice NEET-focused chapter tests, full syllabus tests, detailed solutions, and performance analysis to improve faster.
+        </p>
+      </div>
+
+      <!-- INFINITE TOP FEATURE SLIDER -->
+      <div class="top-feature-slider">
+        <div class="top-feature-track">
+          <div class="mini-card"><span>📚</span><p>Learning Chapters</p></div>
+          <div class="mini-card"><span>📝</span><p>Chapter-wise Tests</p></div>
+          <div class="mini-card"><span>📊</span><p>Performance Analysis</p></div>
+          <div class="mini-card"><span>🎯</span><p>Weak Topic Focus</p></div>
+          <div class="mini-card"><span>⏱️</span><p>Exam Speed Practice</p></div>
+
+          <div class="mini-card"><span>📚</span><p>Learning Chapters</p></div>
+          <div class="mini-card"><span>📝</span><p>Chapter-wise Tests</p></div>
+          <div class="mini-card"><span>📊</span><p>Performance Analysis</p></div>
+          <div class="mini-card"><span>🎯</span><p>Weak Topic Focus</p></div>
+          <div class="mini-card"><span>⏱️</span><p>Exam Speed Practice</p></div>
+        </div>
+      </div>
+
+      <!-- PLAN HEADER -->
+      <div class="test-header">
+        <p>Chapterwise Test Series</p>
+        <h2>Choose Your <span>NEET Test Plan</span></h2>
+        <h4>Affordable plans for Physics, Chemistry and Biology chapter-wise preparation.</h4>
+      </div>
+
+      <!-- MOBILE CONTROLS -->
+      <div class="mobile-slider-top">
+        <span>Swipe or use buttons</span>
+        <div class="mobile-arrows">
+          <button type="button" id="testPrevBtn" aria-label="Previous plan">‹</button>
+          <button type="button" id="testNextBtn" aria-label="Next plan">›</button>
+        </div>
+      </div>
+
+      <!-- TEST CARDS -->
+      <div class="test-grid" id="testSlider">
+
+        <!-- PHYSICS -->
+        <div class="test-card">
+          <div class="popular-badge">Most Popular</div>
+
+          <div class="card-top">
+            <div class="subject-icon">⚡</div>
+            <div>
+              <h3>Physics Test Series</h3>
+              <p>Ideal for strengthening physics concepts and problem-solving.</p>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <span class="currency">₹</span>
+            <span class="price">199</span>
+            <span class="duration">/ month</span>
+          </div>
+
+          <a href="https://jmppf.courses.store/443631" class="test-btn" target="_blank">Start Physics Tests</a>
+
+          <ul class="feature-list">
+            <li>Chapter-wise Physics Tests</li>
+            <li>Numerical Practice Sets</li>
+            <li>Full Length Mock Exams</li>
+            <li>Performance Analysis</li>
+            <li>Detailed Solutions</li>
+            <li>Formula Revision Sheets Included</li>
+            <li>Difficulty-Level Based Questions</li>
+            <li>Previous Year Question Practice</li>
+          </ul>
+        </div>
+
+        <!-- CHEMISTRY -->
+        <div class="test-card featured-card">
+          <div class="popular-badge">Most Popular</div>
+
+          <div class="card-top">
+            <div class="subject-icon">🧪</div>
+            <div>
+              <h3>Chemistry Test Series</h3>
+              <p>Master organic, inorganic, and physical chemistry with structured tests.</p>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <span class="currency">₹</span>
+            <span class="price">199</span>
+            <span class="duration">/ month</span>
+          </div>
+
+          <a href="https://jmppf.courses.store/443637" class="test-btn" target="_blank">Start Chemistry Tests</a>
+
+          <ul class="feature-list">
+            <li>Topic-wise Chemistry Tests</li>
+            <li>Organic Reaction Practice</li>
+            <li>Concept-based Questions</li>
+            <li>Mock Exams</li>
+            <li>Detailed Explanations</li>
+            <li>Reaction Mechanism Practice</li>
+            <li>NCERT-Based Question Sets</li>
+            <li>Quick Concept Revision Tests</li>
+          </ul>
+        </div>
+
+        <!-- BIOLOGY -->
+        <div class="test-card">
+          <div class="popular-badge">Most Popular</div>
+
+          <div class="card-top">
+            <div class="subject-icon">🧬</div>
+            <div>
+              <h3>Biology Test Series</h3>
+              <p>Improve conceptual understanding and speed with targeted biology tests.</p>
+            </div>
+          </div>
+
+          <div class="price-box">
+            <span class="currency">₹</span>
+            <span class="price">199</span>
+            <span class="duration">/ month</span>
+          </div>
+
+          <a href="https://jmppf.courses.store/447712" class="test-btn" target="_blank">Start Biology Tests</a>
+
+          <ul class="feature-list">
+            <li>Chapter-wise Biology Tests</li>
+            <li>Diagram Based Questions</li>
+            <li>Mock Exams</li>
+            <li>Performance Insights</li>
+            <li>Detailed Solutions</li>
+            <li>Diagram & Labeling Practice</li>
+            <li>NCERT Line-by-Line Questions</li>
+            <li>Rapid Revision Mini Tests</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- MOBILE DOTS -->
+      <div class="mobile-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <!-- FAQ SECTION -->
+      <div class="test-faq-section">
+        <div class="faq-heading">
+          <p>Need Help?</p>
+          <h2>Frequently Asked <span>Questions</span></h2>
+        </div>
+
+        <div class="faq-list">
+
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>1. What is included in the PCB Point Test Series?</span>
+              <b>+</b>
+            </button>
+            <div class="faq-answer">
+              <p>You get full syllabus + part tests, detailed solutions, and performance analysis to track your progress.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>2. Are the tests based on NEET pattern?</span>
+              <b>+</b>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, all tests are designed exactly on the latest NEET pattern and difficulty level.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>3. Will I get solutions and explanations?</span>
+              <b>+</b>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. Each test comes with detailed solutions and concept clarity.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>4. How will this help improve my score?</span>
+              <b>+</b>
+            </button>
+            <div class="faq-answer">
+              <p>You’ll identify weak areas, improve accuracy, and build exam temperament through regular practice.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>5. Is there a performance analysis?</span>
+              <b>+</b>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. You’ll get in-depth analysis to understand your mistakes and improve faster.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>6. Can I attempt tests anytime?</span>
+              <b>+</b>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, tests are flexible — you can attempt them as per your schedule.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<style>
+  html {
+    scroll-padding-top: 120px;
+  }
+
+  .test-series-section {
+    position: relative;
+    padding: 160px 20px 115px;
+    background: #050505;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #fff;
+  }
+
+  .test-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(140px);
+    pointer-events: none;
+  }
+
+  .glow-one {
+    width: 540px;
+    height: 540px;
+    top: -120px;
+    left: -160px;
+    background: rgba(132, 204, 22, 0.13);
+  }
+
+  .glow-two {
+    width: 560px;
+    height: 560px;
+    right: -180px;
+    bottom: -200px;
+    background: rgba(76, 215, 246, 0.13);
+  }
+
+  .test-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .test-hero-top {
+    text-align: center;
+    max-width: 1050px;
+    margin: 0 auto 52px;
+  }
+
+  .test-kicker,
+  .test-header p,
+  .faq-heading p {
+    color: #8ee000;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .test-hero-top h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.9rem, 7vw, 6.7rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    font-weight: 1000;
+    padding-bottom: 8px;
+  }
+
+  .test-hero-top h1 span,
+  .test-header h2 span,
+  .faq-heading h2 span {
+    display: block;
+    padding-bottom: 8px;
+    background: linear-gradient(90deg, #8ee000, #fff, #4cd7f6);
+    background-size: 260%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textMove 5s linear infinite;
+  }
+
+  .test-hero-desc {
+    max-width: 760px;
+    margin: 24px auto 0;
+    color: #9f9f9f;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  .top-feature-slider {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    position: relative;
+    padding: 12px 0 70px;
+  }
+
+  .top-feature-slider::before,
+  .top-feature-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 130px;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .top-feature-slider::before {
+    left: 0;
+    background: linear-gradient(90deg, #050505, transparent);
+  }
+
+  .top-feature-slider::after {
+    right: 0;
+    background: linear-gradient(270deg, #050505, transparent);
+  }
+
+  .top-feature-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: miniSlide 22s linear infinite;
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  @keyframes miniSlide {
+    from { transform: translate3d(0,0,0); }
+    to { transform: translate3d(-50%,0,0); }
+  }
+
+  .mini-card {
+    flex: 0 0 260px;
+    min-height: 110px;
+    border-radius: 28px;
+    padding: 20px 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 28px 90px rgba(0,0,0,.35);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    user-select: none;
+  }
+
+  .mini-card span {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: rgba(255,255,255,.08);
+    font-size: 26px;
+  }
+
+  .mini-card p {
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .test-header {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 60px;
+  }
+
+  .test-header h2,
+  .faq-heading h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.6rem, 7vw, 5.8rem);
+    line-height: 1.03;
+    letter-spacing: -0.05em;
+    font-weight: 1000;
+    padding-bottom: 8px;
+  }
+
+  .test-header h4 {
+    color: #8f8f8f;
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+
+  @keyframes textMove {
+    to { background-position: 260%; }
+  }
+
+  .mobile-slider-top,
+  .mobile-dots {
+    display: none;
+  }
+
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+
+  .test-card {
+    position: relative;
+    padding: 34px;
+    border-radius: 34px;
+    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 30px 90px rgba(0,0,0,.45);
+    overflow: hidden;
+    transition: border-color .45s ease, box-shadow .45s ease, background .45s ease;
+    scroll-margin-top: 130px;
+  }
+
+  .test-card::before,
+  .faq-item::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(142,224,0,.55), rgba(76,215,246,.5), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: .35;
+    pointer-events: none;
+  }
+
+  .test-card:hover {
+    border-color: rgba(142,224,0,.45);
+    box-shadow: 0 38px 120px rgba(0,0,0,.65), 0 0 50px rgba(142,224,0,.12);
+  }
+
+  .featured-card {
+    border-color: rgba(142,224,0,.45);
+    box-shadow: 0 38px 120px rgba(0,0,0,.68), 0 0 55px rgba(142,224,0,.12);
+  }
+
+  .popular-badge {
+    width: fit-content;
+    padding: 9px 15px;
+    border-radius: 999px;
+    background: rgba(142,224,0,.13);
+    border: 1px solid rgba(142,224,0,.35);
+    color: #8ee000;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .card-top {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .subject-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    font-size: 28px;
+  }
+
+  .card-top h3 {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 1000;
+  }
+
+  .card-top p {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .price-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin-bottom: 26px;
+  }
+
+  .currency {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    color: #fff;
+    font-size: 70px;
+    line-height: .85;
+    letter-spacing: -0.07em;
+    font-weight: 1000;
+  }
+
+  .duration {
+    color: #777;
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .test-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 17px 20px;
+    border-radius: 18px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    transition: .35s ease;
+    margin-bottom: 28px;
+  }
+
+  .test-btn:hover {
+    background: #8ee000;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+  }
+
+  .feature-list li {
+    position: relative;
+    color: #d8d8d8;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 700;
+    padding-left: 30px;
+  }
+
+  .feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(142,224,0,.12);
+    border: 1px solid rgba(142,224,0,.3);
+    color: #8ee000;
+    font-size: 11px;
+    font-weight: 900;
+  }
+
+  .test-faq-section {
+    margin-top: 110px;
+  }
+
+  .faq-heading {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 45px;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 16px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    position: relative;
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.12);
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0,0,0,.38);
+    scroll-margin-top: 130px;
+  }
+
+  .faq-question {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    padding: 24px 26px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .faq-question span {
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 900;
+  }
+
+  .faq-question b {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(142,224,0,.12);
+    border: 1px solid rgba(142,224,0,.35);
+    color: #8ee000;
+    font-size: 26px;
+    transition: .3s ease;
+  }
+
+  .faq-item.active .faq-question b {
+    transform: rotate(45deg);
+    background: #8ee000;
+    color: #000;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .45s ease;
+  }
+
+  .faq-answer p {
+    margin: 0;
+    padding: 0 26px 26px;
+    color: #b8b8b8;
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 600;
+  }
+
+  @media (max-width: 1050px) and (min-width: 701px) {
+    .test-grid {
+      grid-template-columns: 1fr;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 700px) {
+    html {
+      scroll-padding-top: 105px;
+    }
+
+    .test-series-section {
+      padding: 135px 0 80px;
+    }
+
+    .test-hero-top {
+      padding: 0 16px;
+      margin-bottom: 42px;
+    }
+
+    .test-hero-top h1 {
+      font-size: clamp(2.15rem, 10vw, 3.65rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      padding-bottom: 12px;
+    }
+
+    .test-hero-top h1 span {
+      padding-bottom: 12px;
+    }
+
+    .test-hero-desc {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .top-feature-slider {
+      padding: 8px 0 58px;
+    }
+
+    .top-feature-slider::before,
+    .top-feature-slider::after {
+      width: 45px;
+    }
+
+    .top-feature-track {
+      gap: 12px;
+      animation-duration: 18s;
+    }
+
+    .mini-card {
+      flex-basis: 220px;
+      min-height: 96px;
+      border-radius: 22px;
+      padding: 16px 14px;
+    }
+
+    .mini-card span {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border-radius: 14px;
+      font-size: 22px;
+    }
+
+    .mini-card p {
+      font-size: 13px;
+    }
+
+    .test-header {
+      padding: 0 16px;
+      margin-bottom: 26px;
+    }
+
+    .test-header p,
+    .faq-heading p,
+    .test-kicker {
+      font-size: 10px;
+      letter-spacing: .22em;
+    }
+
+    .test-header h2,
+    .faq-heading h2 {
+      font-size: clamp(2.25rem, 11vw, 3.8rem);
+      line-height: 1.08;
+      padding-bottom: 12px;
+    }
+
+    .test-header h4 {
+      font-size: 14px;
+    }
+
+    .mobile-slider-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      margin-bottom: 18px;
+    }
+
+    .mobile-slider-top span {
+      color: #8ee000;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .mobile-arrows {
+      display: flex;
+      gap: 10px;
+    }
+
+    .mobile-arrows button {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(142,224,0,.35);
+      background: rgba(142,224,0,.10);
+      color: #fff;
+      font-size: 30px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .mobile-arrows button:active {
+      background: #8ee000;
+      color: #000;
+      transform: scale(.92);
+    }
+
+    .test-grid {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 16px;
+      padding: 8px 16px 28px;
+      margin: 0;
+      max-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    .test-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .test-card {
+      flex: 0 0 86%;
+      max-width: 86%;
+      scroll-snap-align: center;
+      padding: 24px;
+      border-radius: 28px;
+      transform: none !important;
+      scroll-margin-top: 120px;
+    }
+
+    .card-top {
+      flex-direction: column;
+    }
+
+    .card-top h3 {
+      font-size: 24px;
+    }
+
+    .price {
+      font-size: 58px;
+    }
+
+    .test-btn {
+      font-size: 12px;
+      padding: 15px 16px;
+    }
+
+    .feature-list li {
+      font-size: 13px;
+    }
+
+    .mobile-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      background: rgba(255,255,255,.25);
+      transition: .3s ease;
+    }
+
+    .dot.active {
+      width: 24px;
+      background: #8ee000;
+      box-shadow: 0 0 20px rgba(142,224,0,.55);
+    }
+
+    .test-faq-section {
+      margin-top: 80px;
+      padding: 0 15px;
+    }
+
+    .faq-question {
+      padding: 20px;
+    }
+
+    .faq-question span {
+      font-size: 14px;
+    }
+
+    .faq-question b {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      font-size: 24px;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 22px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .test-card {
+      flex-basis: 88%;
+      max-width: 88%;
+      padding: 22px;
+    }
+
+    .mini-card {
+      flex-basis: 200px;
+    }
+  }
+</style>
+
+<script>
+  const testSlider = document.getElementById("testSlider");
+  const testPrevBtn = document.getElementById("testPrevBtn");
+  const testNextBtn = document.getElementById("testNextBtn");
+  const dots = document.querySelectorAll(".mobile-dots .dot");
+
+  function getCardWidth() {
+    const card = testSlider.querySelector(".test-card");
+    return card.offsetWidth + 16;
+  }
+
+  function updateDots() {
+    if (window.innerWidth > 700) return;
+    const index = Math.round(testSlider.scrollLeft / getCardWidth());
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+  }
+
+  testNextBtn.addEventListener("click", () => {
+    testSlider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
+  });
+
+  testPrevBtn.addEventListener("click", () => {
+    testSlider.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
+  });
+
+  testSlider.addEventListener("scroll", () => {
+    window.requestAnimationFrame(updateDots);
+  });
+
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    if (item.classList.contains("active")) {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+
+    button.addEventListener("click", () => {
+      const isActive = item.classList.contains("active");
+
+      faqItems.forEach((faq) => {
+        faq.classList.remove("active");
+        faq.querySelector(".faq-answer").style.maxHeight = null;
+      });
+
+      if (!isActive) {
+        item.classList.add("active");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+
+<!-- main -->
+<footer class="border-t border-white/10 py-10 px-5">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-5">
+    <h3 class="text-white text-2xl font-black">The PCB Point<span class="text-primary">.</span></h3>
+    <p class="text-zinc-500 text-sm">© 2026 Soinech. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("open");
+    document.body.style.overflow = "auto";
+  });
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      document.body.style.overflow = "auto";
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("header");
+    if (window.scrollY > 40) {
+      header.classList.add("backdrop-blur-xl");
+    } else {
+      header.classList.remove("backdrop-blur-xl");
+    }
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

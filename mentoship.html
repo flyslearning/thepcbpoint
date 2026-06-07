@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pcb Point</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#DDB7FF",
+            purple: "#B76DFF",
+            cyan: "#4CD7F6",
+            green: "#4AE176",
+            dark: "#050505"
+          },
+          fontFamily: {
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Outfit", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    html, body { margin: 0; overflow-x: hidden; background: #050505; }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(18px);
+      transition: .4s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-8px);
+      border-color: rgba(183,109,255,.45);
+      box-shadow: 0 25px 60px rgba(0,0,0,.45);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg,#fff,#DDB7FF,#4CD7F6,#fff);
+      background-size: 250%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 250%; }
+    }
+
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu {
+      clip-path: circle(0% at 90% 10%);
+      transition: .7s ease;
+    }
+
+    .menu.open {
+      clip-path: circle(160% at 90% 10%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: scroll 25s linear infinite;
+    }
+
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      to { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+
+<body class="font-body text-zinc-300 bg-dark">
+
+<!-- PREMIUM RESPONSIVE HEADER -->
+<!-- PREMIUM RESPONSIVE HEADER - THE PCB POINT -->
+<header id="header" class="fixed top-0 left-0 w-full z-50 px-3 sm:px-4 py-3 sm:py-4">
+  <div class="max-w-7xl mx-auto header-glass rounded-2xl sm:rounded-3xl px-4 sm:px-5 md:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+
+    <!-- LOGO -->
+    <a href="/" class="logo-wrap min-w-0 flex flex-col leading-none">
+      <span class="logo-text text-white font-display font-black tracking-tight">
+        The PCB Point<span class="text-primary">.</span>
+      </span>
+      <span class="logo-sub text-zinc-500 font-black uppercase mt-1">
+        AI Education
+      </span>
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex items-center gap-7 xl:gap-9 text-[11px] font-black uppercase tracking-[.22em] text-white">
+      <a href="/" class="nav-link">Home</a>
+      <a href="mentoship.html" class="nav-link active">Mentorship</a>
+      <a href="testimonials.html" class="nav-link">Testimonials</a>
+      <a href="test-series.html" class="nav-link">Test Series</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+
+    <!-- ACTIONS -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="#join" class="hidden sm:inline-flex bg-white text-black px-5 md:px-6 py-3 rounded-full text-[10px] md:text-xs font-black uppercase hover:bg-primary transition">
+        Join Now
+      </a>
+
+      <button id="menuBtn" aria-label="Open menu" class="menu-btn w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 bg-white/5 flex flex-col items-center justify-center gap-1.5 hover:bg-white/10 transition">
+        <span class="w-5 h-[2px] bg-white rounded-full"></span>
+        <span class="w-3 h-[2px] bg-primary rounded-full"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="menu" class="premium-menu fixed inset-0 bg-[#050505] opacity-0 pointer-events-none z-[60] flex flex-col justify-center px-6 sm:px-10">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute -top-20 -left-20 w-72 h-72 bg-purple/20 rounded-full blur-[100px]"></div>
+      <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-cyan/20 rounded-full blur-[100px]"></div>
+      <h2 class="absolute bottom-8 left-4 text-[17vw] sm:text-[14vw] font-black text-white/[0.035] leading-none uppercase">
+        PCB POINT
+      </h2>
+    </div>
+
+    <button id="closeBtn" aria-label="Close menu" class="absolute top-6 right-5 sm:top-8 sm:right-8 text-white border border-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full hover:bg-white hover:text-black transition z-10">
+      ✕
+    </button>
+
+    <div class="relative z-10">
+      <p class="text-primary text-[10px] sm:text-xs uppercase tracking-[.45em] font-black mb-8">
+        Menu
+      </p>
+
+      <a href="/" class="mobile-link">Home</a>
+      <a href="mentoship.html" class="mobile-link active">Mentorship</a>
+      <a href="testimonials.html" class="mobile-link">Testimonials</a>
+      <a href="test-series.html" class="mobile-link">Test Series</a>
+      <a href="about.html" class="mobile-link">About Us</a>
+
+      <a href="#join" class="mt-10 inline-flex w-full sm:w-auto justify-center bg-white text-black px-8 py-4 rounded-2xl font-black uppercase text-sm hover:bg-primary transition">
+        Join Now
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  :root {
+    --primary: #DDB7FF;
+    --purple: #B76DFF;
+    --cyan: #4CD7F6;
+  }
+
+  .header-glass {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.22);
+    transition: .35s ease;
+  }
+
+  #header.scrolled .header-glass {
+    background: rgba(5, 5, 5, 0.86);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  }
+
+  .logo-text {
+    font-size: clamp(1.05rem, 4.8vw, 1.875rem);
+    max-width: 58vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .logo-sub {
+    font-size: clamp(6.5px, 1.8vw, 8px);
+    letter-spacing: clamp(.22em, 1vw, .45em);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: .3s ease;
+    padding: 8px 0;
+    color: #fff;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2.5px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    transition: .3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .premium-menu {
+    clip-path: circle(0% at 92% 6%);
+    transition: clip-path .75s cubic-bezier(.85,0,.15,1), opacity .45s ease;
+  }
+
+  .premium-menu.open {
+    clip-path: circle(150% at 92% 6%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    position: relative;
+    display: block;
+    width: fit-content;
+    color: white;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.055em;
+    font-size: clamp(2.65rem, 13vw, 6rem);
+    margin-bottom: 17px;
+    transition: .35s ease;
+  }
+
+  .mobile-link::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--primary), var(--cyan));
+    transition: .35s ease;
+  }
+
+  .mobile-link.active {
+    color: var(--primary);
+  }
+
+  .mobile-link.active::after {
+    width: 55%;
+  }
+
+  .mobile-link:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    transform: translateX(12px);
+  }
+
+  .menu-btn span {
+    transition: .3s ease;
+  }
+
+  .menu-btn:hover span:nth-child(2) {
+    width: 20px;
+  }
+
+  @media (max-width: 420px) {
+    #header {
+      padding-left: 9px;
+      padding-right: 9px;
+    }
+
+    .header-glass {
+      border-radius: 20px;
+      padding-left: 14px;
+      padding-right: 12px;
+    }
+
+    .logo-text {
+      max-width: 64vw;
+      font-size: 1.12rem;
+    }
+
+    .logo-sub {
+      letter-spacing: .26em;
+    }
+
+    .mobile-link {
+      font-size: clamp(2.35rem, 12.4vw, 4.5rem);
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .logo-text {
+      max-width: 60vw;
+      font-size: 1rem;
+    }
+
+    .menu-btn {
+      width: 42px;
+      height: 42px;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+  const header = document.getElementById("header");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+
+
+
+
+<!-- ---- menu button--- -->
+<style>
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  #header.scrolled .glass {
+    background: rgba(5, 5, 5, 0.82);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: .3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #DDB7FF, #4CD7F6);
+    transition: .3s ease;
+  }
+
+  .nav-link:hover {
+    color: #DDB7FF;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .premium-menu {
+    clip-path: circle(0% at 92% 6%);
+    transition: clip-path .75s cubic-bezier(.85,0,.15,1), opacity .45s ease;
+  }
+
+  .premium-menu.open {
+    clip-path: circle(150% at 92% 6%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-link {
+    display: block;
+    color: white;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -0.05em;
+    font-size: clamp(3rem, 15vw, 6rem);
+    margin-bottom: 18px;
+    transition: .35s ease;
+  }
+
+  .mobile-link:hover {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    transform: translateX(12px);
+  }
+
+  @media (max-width: 420px) {
+    #header {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .mobile-link {
+      margin-bottom: 14px;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+  const header = document.getElementById("header");
+
+  function openMenu() {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+</script>
+<!-- main    -->
+
+<main>
+  <section id="mentorship" class="mentor-page">
+
+    <div class="mentor-glow glow-1"></div>
+    <div class="mentor-glow glow-2"></div>
+
+    <div class="mentor-hero">
+
+      <!-- IMAGES: mobile par sabse top -->
+      <div class="mentor-images">
+        <div class="mentor-img img-big">
+          <img src="Assets/PCB Point Mentorship 2027-images-0.jpg" alt="PCB Point Mentorship">
+        </div>
+
+        <div class="mentor-img img-small">
+          <img src="Assets/PCB Point Mentorship 2027-images-1.jpg" alt="PCB Point Mentorship Details">
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="mentor-content">
+        <p class="mentor-tag">The PCB Point Mentorship</p>
+
+        <h1>
+          You Don’t Need More Content
+          <span>You Need the Right Mentor</span>
+        </h1>
+
+        <p class="mentor-desc">
+          Get daily targets, personalized guidance, and continuous mentor support to stay consistent and improve faster.
+        </p>
+
+        <div class="mentor-actions">
+          <a href="https://api.whatsapp.com/send?phone=916289459483" class="mentor-btn primary">View Features</a>
+          <a href="https://api.whatsapp.com/send?phone=916289459483" target="_blank" class="mentor-btn dark">Join Now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PREMIUM SQUARE IMAGE COURSE / MENTORSHIP SLIDER -->
+<section id="courses" class="course-section">
+  <div class="course-bg-glow course-bg-1"></div>
+  <div class="course-bg-glow course-bg-2"></div>
+
+  <div class="course-container">
+    <div class="course-head">
+      <p>PCB Point Mentorship 2027</p>
+      <h2>
+        Explore <span>Course Details</span>
+      </h2>
+      <h4>Swipe / slide through all mentorship pages</h4>
+    </div>
+
+    <div class="course-slider-wrap">
+      <div class="course-slider">
+
+        <!-- 16 IMAGES -->
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-0.jpg" alt="PCB Point Mentorship Page 1">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-1.jpg" alt="PCB Point Mentorship Page 2">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-2.jpg" alt="PCB Point Mentorship Page 3">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-3.jpg" alt="PCB Point Mentorship Page 4">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-4.jpg" alt="PCB Point Mentorship Page 5">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-5.jpg" alt="PCB Point Mentorship Page 6">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-6.jpg" alt="PCB Point Mentorship Page 7">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-7.jpg" alt="PCB Point Mentorship Page 8">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-8.jpg" alt="PCB Point Mentorship Page 9">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-9.jpg" alt="PCB Point Mentorship Page 10">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-10.jpg" alt="PCB Point Mentorship Page 11">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-11.jpg" alt="PCB Point Mentorship Page 12">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-12.jpg" alt="PCB Point Mentorship Page 13">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-13.jpg" alt="PCB Point Mentorship Page 14">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-14.jpg" alt="PCB Point Mentorship Page 15">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-15.jpg" alt="PCB Point Mentorship Page 16">
+        </div>
+
+        <!-- DUPLICATE FOR INFINITE LOOP -->
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-0.jpg" alt="PCB Point Mentorship Page 1">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-1.jpg" alt="PCB Point Mentorship Page 2">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-2.jpg" alt="PCB Point Mentorship Page 3">
+        </div>
+
+        <div class="course-card">
+          <img src="Assets/PCB Point Mentorship 2027-images-3.jpg" alt="PCB Point Mentorship Page 4">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .course-section {
+    position: relative;
+    padding: 90px 0;
+    background: #050505;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  .course-bg-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(140px);
+    pointer-events: none;
+  }
+
+  .course-bg-1 {
+    width: 520px;
+    height: 520px;
+    top: -160px;
+    left: -140px;
+    background: rgba(132, 204, 22, 0.16);
+  }
+
+  .course-bg-2 {
+    width: 520px;
+    height: 520px;
+    right: -160px;
+    bottom: -180px;
+    background: rgba(76, 215, 246, 0.14);
+  }
+
+  .course-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .course-head {
+    max-width: 1280px;
+    margin: 0 auto 45px;
+    padding: 0 20px;
+  }
+
+  .course-head p {
+    color: #8ee000;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .course-head h2 {
+    color: #fff;
+    font-size: clamp(2.6rem, 7vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    font-weight: 1000;
+    margin: 0;
+  }
+
+  .course-head h2 span {
+    background: linear-gradient(90deg, #8ee000, #ffffff, #4cd7f6);
+    background-size: 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: courseTextShine 5s linear infinite;
+  }
+
+  .course-head h4 {
+    color: #888;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 18px;
+  }
+
+  @keyframes courseTextShine {
+    to {
+      background-position: 250%;
+    }
+  }
+
+  .course-slider-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 15px 0 35px;
+  }
+
+  .course-slider-wrap::before,
+  .course-slider-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .course-slider-wrap::before {
+    left: 0;
+    background: linear-gradient(90deg, #050505, transparent);
+  }
+
+  .course-slider-wrap::after {
+    right: 0;
+    background: linear-gradient(270deg, #050505, transparent);
+  }
+
+  .course-slider {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: courseSlide 55s linear infinite;
+    will-change: transform;
+  }
+
+  .course-slider:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes courseSlide {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .course-card {
+    position: relative;
+    flex: 0 0 430px;
+    aspect-ratio: 1 / 1;
+    border-radius: 32px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(142, 224, 0, 0.22);
+    box-shadow:
+      0 28px 90px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    transition: 0.4s ease;
+  }
+
+  .course-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.18) 45%,
+      transparent 65%
+    );
+    transform: translateX(-130%);
+    transition: 0.7s ease;
+  }
+
+  .course-card:hover::before {
+    transform: translateX(130%);
+  }
+
+  .course-card:hover {
+    border-color: rgba(142, 224, 0, 0.55);
+    box-shadow:
+      0 34px 110px rgba(0, 0, 0, 0.75),
+      0 0 45px rgba(142, 224, 0, 0.18);
+  }
+
+  .course-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  @media (max-width: 900px) {
+    .course-section {
+      padding: 75px 0;
+    }
+
+    .course-card {
+      flex-basis: 360px;
+      border-radius: 28px;
+    }
+
+    .course-slider {
+      gap: 18px;
+      animation-duration: 45s;
+    }
+
+    .course-slider-wrap::before,
+    .course-slider-wrap::after {
+      width: 70px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .course-section {
+      padding: 65px 0;
+    }
+
+    .course-head {
+      margin-bottom: 30px;
+    }
+
+    .course-head p {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+    }
+
+    .course-head h2 {
+      font-size: clamp(2.2rem, 12vw, 3.8rem);
+      line-height: 1;
+    }
+
+    .course-head h4 {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .course-card {
+      flex-basis: 285px;
+      border-radius: 24px;
+    }
+
+    .course-slider {
+      gap: 14px;
+      animation-duration: 38s;
+    }
+
+    .course-slider-wrap::before,
+    .course-slider-wrap::after {
+      width: 35px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .course-card {
+      flex-basis: 255px;
+      border-radius: 22px;
+    }
+  }
+</style>
+
+    <!-- SLIDING STRIP AFTER JOIN NOW -->
+    <div class="mentor-strip">
+      <div class="mentor-strip-track">
+        <div class="strip-card"><span>👥</span><p>Private Mentorship Groups</p></div>
+        <div class="strip-card"><span>📞</span><p>Mentor Strategy Calls</p></div>
+        <div class="strip-card"><span>🔍</span><p>Weak Chapter Detection</p></div>
+        <div class="strip-card"><span>📝</span><p>Chapterwise NEET Tests</p></div>
+        <div class="strip-card"><span>❌</span><p>Mistake Analysis System</p></div>
+        <div class="strip-card"><span>📊</span><p>Progress Tracking</p></div>
+
+        <div class="strip-card"><span>👥</span><p>Private Mentorship Groups</p></div>
+        <div class="strip-card"><span>📞</span><p>Mentor Strategy Calls</p></div>
+        <div class="strip-card"><span>🔍</span><p>Weak Chapter Detection</p></div>
+        <div class="strip-card"><span>📝</span><p>Chapterwise NEET Tests</p></div>
+        <div class="strip-card"><span>❌</span><p>Mistake Analysis System</p></div>
+        <div class="strip-card"><span>📊</span><p>Progress Tracking</p></div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section id="mentor-features" class="mentor-features-section">
+      <div class="mentor-heading">
+        <p>Mentorship System</p>
+        <h2>Everything You Need To Stay Consistent</h2>
+      </div>
+
+      <!-- MOBILE ARROWS -->
+      <div class="feature-controls">
+        <button type="button" id="mentorPrev">‹</button>
+        <button type="button" id="mentorNext">›</button>
+      </div>
+
+      <div class="mentor-features-grid" id="mentorFeatureSlider">
+
+        <div class="mentor-feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Private Mentorship Groups</h3>
+          <p>Study with a small group guided by a supervisor, private mentor, and senior mentor.</p>
+        </div>
+
+        <div class="mentor-feature-card">
+          <div class="feature-icon">📞</div>
+          <h3>Mentor Strategy Calls</h3>
+          <p>Get regular personal calls with mentors to review preparation, fix mistakes, and plan next targets.</p>
+        </div>
+
+        <div class="mentor-feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Weak Chapter Detection</h3>
+          <p>Instantly identify chapters where you lose marks so mentors can assign focused practice.</p>
+        </div>
+
+        <div class="mentor-feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Chapterwise NEET Tests</h3>
+          <p>Practice chapter-specific tests designed according to the latest NEET exam pattern.</p>
+        </div>
+
+        <div class="mentor-feature-card">
+          <div class="feature-icon">❌</div>
+          <h3>Mistake Analysis System</h3>
+          <p>Track your mistakes after every test and understand exactly where you lose marks.</p>
+        </div>
+
+        <div class="mentor-feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Progress Tracking</h3>
+          <p>Monitor your preparation with insights, reports, and continuous feedback from mentors.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </section>
+</main>
+
+<style>
+  .mentor-page {
+    position: relative;
+    padding: 125px 20px 100px;
+    background: #050505;
+    color: #fff;
+    overflow: hidden;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  .mentor-glow {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(150px);
+    pointer-events: none;
+  }
+
+  .glow-1 {
+    width: 560px;
+    height: 560px;
+    top: -180px;
+    left: -180px;
+    background: rgba(142,224,0,.13);
+  }
+
+  .glow-2 {
+    width: 560px;
+    height: 560px;
+    right: -180px;
+    bottom: -180px;
+    background: rgba(76,215,246,.13);
+  }
+
+  .mentor-hero {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto 52px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .mentor-content {
+    order: 1;
+  }
+
+  .mentor-images {
+    order: 2;
+    position: relative;
+    min-height: 560px;
+  }
+
+  .mentor-tag {
+    color: #8ee000;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .mentor-content h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6.4vw, 6.4rem);
+    line-height: 1.08;
+    letter-spacing: -.05em;
+    font-weight: 1000;
+    overflow: visible;
+  }
+
+  .mentor-content h1 span {
+    display: block;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #8ee000, #ffffff, #4cd7f6);
+    background-size: 260%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: mentorTextMove 5s linear infinite;
+  }
+
+  @keyframes mentorTextMove {
+    to { background-position: 260%; }
+  }
+
+  .mentor-desc {
+    max-width: 650px;
+    margin: 24px 0 0;
+    color: #a8a8a8;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  .mentor-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .mentor-btn {
+    display: inline-flex;
+    justify-content: center;
+    padding: 17px 30px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    transition: .35s ease;
+  }
+
+  .mentor-btn.primary {
+    background: #fff;
+    color: #000;
+  }
+
+  .mentor-btn.dark {
+    color: #fff;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(18px);
+  }
+
+  .mentor-btn:hover {
+    background: #8ee000;
+    color: #000;
+    transform: translateY(-3px);
+  }
+
+  .mentor-img {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 38px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 38px 110px rgba(0,0,0,.62);
+  }
+
+  .mentor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .img-big {
+    width: 78%;
+    aspect-ratio: 1 / 1;
+    top: 0;
+    right: 0;
+    animation: floatOne 6s ease-in-out infinite;
+  }
+
+  .img-small {
+    width: 66%;
+    aspect-ratio: 1 / 1;
+    left: 0;
+    bottom: 0;
+    animation: floatTwo 7s ease-in-out infinite;
+  }
+
+  @keyframes floatOne {
+    0%,100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-14px) rotate(1.5deg); }
+  }
+
+  @keyframes floatTwo {
+    0%,100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(14px) rotate(-1.5deg); }
+  }
+
+  .mentor-strip {
+    position: relative;
+    z-index: 2;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    padding: 18px 0 60px;
+  }
+
+  .mentor-strip::before,
+  .mentor-strip::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 130px;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .mentor-strip::before {
+    left: 0;
+    background: linear-gradient(90deg, #050505, transparent);
+  }
+
+  .mentor-strip::after {
+    right: 0;
+    background: linear-gradient(270deg, #050505, transparent);
+  }
+
+  .mentor-strip-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: stripSlide 24s linear infinite;
+  }
+
+  @keyframes stripSlide {
+    from { transform: translate3d(0,0,0); }
+    to { transform: translate3d(-50%,0,0); }
+  }
+
+  .strip-card {
+    flex: 0 0 255px;
+    min-height: 104px;
+    border-radius: 26px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  }
+
+  .strip-card span {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: rgba(255,255,255,.08);
+    font-size: 24px;
+  }
+
+  .strip-card p {
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .mentor-features-section {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .mentor-heading {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 34px;
+  }
+
+  .mentor-heading p {
+    color: #8ee000;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .mentor-heading h2 {
+    margin: 0;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -.045em;
+    font-weight: 1000;
+  }
+
+  .feature-controls {
+    display: none;
+  }
+
+  .mentor-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .mentor-feature-card {
+    position: relative;
+    padding: 34px;
+    border-radius: 34px;
+    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(22px);
+    box-shadow: 0 28px 90px rgba(0,0,0,.42);
+    overflow: hidden;
+    transition: .4s ease;
+  }
+
+  .mentor-feature-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(142,224,0,.42);
+    box-shadow: 0 38px 120px rgba(0,0,0,.62), 0 0 45px rgba(142,224,0,.10);
+  }
+
+  .feature-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+
+  .mentor-feature-card h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 1000;
+    letter-spacing: -.04em;
+  }
+
+  .mentor-feature-card p {
+    margin: 0;
+    color: #a0a0a0;
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 600;
+  }
+
+  @media (max-width: 950px) {
+    .mentor-hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 42px;
+    }
+
+    .mentor-images {
+      order: 1;
+    }
+
+    .mentor-content {
+      order: 2;
+    }
+
+    .mentor-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mentor-actions {
+      justify-content: center;
+    }
+
+    .mentor-features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .mentor-page {
+      padding: 95px 0 80px;
+    }
+
+    .mentor-hero {
+      margin-bottom: 35px;
+      padding: 0 15px;
+    }
+
+    .mentor-images {
+      min-height: 360px;
+      margin-bottom: 8px;
+    }
+
+    .mentor-img {
+      border-radius: 26px;
+    }
+
+    .img-big {
+      width: 88%;
+      right: 0;
+    }
+
+    .img-small {
+      width: 74%;
+      left: 0;
+    }
+
+    .mentor-tag {
+      font-size: 10px;
+      letter-spacing: .22em;
+    }
+
+    .mentor-content h1 {
+      font-size: clamp(2.2rem, 10.5vw, 3.75rem);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+      padding-bottom: 4px;
+    }
+
+    .mentor-content h1 span {
+      padding-bottom: 14px;
+      margin-top: 8px;
+    }
+
+    .mentor-desc {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .mentor-actions {
+      flex-direction: column;
+    }
+
+    .mentor-btn {
+      width: 100%;
+    }
+
+    .mentor-strip {
+      padding: 10px 0 48px;
+    }
+
+    .mentor-strip::before,
+    .mentor-strip::after {
+      width: 45px;
+    }
+
+    .mentor-strip-track {
+      gap: 12px;
+      animation-duration: 20s;
+    }
+
+    .strip-card {
+      flex-basis: 215px;
+      min-height: 92px;
+      border-radius: 22px;
+      padding: 14px;
+    }
+
+    .strip-card span {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      font-size: 22px;
+    }
+
+    .strip-card p {
+      font-size: 13px;
+    }
+
+    .mentor-features-section {
+      padding: 0 0 0;
+    }
+
+    .mentor-heading {
+      padding: 0 15px;
+      margin-bottom: 20px;
+    }
+
+    .mentor-heading p {
+      font-size: 10px;
+      letter-spacing: .22em;
+    }
+
+    .mentor-heading h2 {
+      font-size: clamp(2.1rem, 10vw, 3.3rem);
+      line-height: 1.08;
+    }
+
+    .feature-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 0 15px;
+      margin-bottom: 14px;
+    }
+
+    .feature-controls button {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(142,224,0,.35);
+      background: rgba(142,224,0,.10);
+      color: #fff;
+      font-size: 30px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .feature-controls button:active {
+      background: #8ee000;
+      color: #000;
+      transform: scale(.92);
+    }
+
+    .mentor-features-grid {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 15px;
+      padding: 8px 15px 24px;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    .mentor-features-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mentor-feature-card {
+      flex: 0 0 86%;
+      max-width: 86%;
+      scroll-snap-align: center;
+      padding: 26px;
+      border-radius: 28px;
+      transform: none !important;
+    }
+
+    .mentor-feature-card:hover {
+      transform: none !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .mentor-images {
+      min-height: 330px;
+    }
+
+    .mentor-feature-card {
+      flex-basis: 88%;
+      max-width: 88%;
+    }
+  }
+</style>
+
+<script>
+  const mentorSlider = document.getElementById("mentorFeatureSlider");
+  const mentorPrev = document.getElementById("mentorPrev");
+  const mentorNext = document.getElementById("mentorNext");
+
+  function mentorCardWidth() {
+    const card = mentorSlider.querySelector(".mentor-feature-card");
+    return card.offsetWidth + 16;
+  }
+
+  mentorNext.addEventListener("click", () => {
+    mentorSlider.scrollBy({
+      left: mentorCardWidth(),
+      behavior: "smooth"
+    });
+  });
+
+  mentorPrev.addEventListener("click", () => {
+    mentorSlider.scrollBy({
+      left: -mentorCardWidth(),
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+<!-- main -->
+<footer class="border-t border-white/10 py-10 px-5">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-5">
+    <h3 class="text-white text-2xl font-black">The PCB Point<span class="text-primary">.</span></h3>
+    <p class="text-zinc-500 text-sm">© 2026 Soinech. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("open");
+    document.body.style.overflow = "auto";
+  });
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      document.body.style.overflow = "auto";
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("header");
+    if (window.scrollY > 40) {
+      header.classList.add("backdrop-blur-xl");
+    } else {
+      header.classList.remove("backdrop-blur-xl");
+    }
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
