@@ -1153,15 +1153,18 @@
     .neet-plan-layout {
       display: flex;
       overflow-x: auto;
-      gap: 24px;
-      padding: 40px 12px 32px;
+      gap: 16px;
+     padding: 40px 20px 32px;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       align-items: stretch;
     }
     .neet-plan-layout::-webkit-scrollbar { display: none; }
-    .neet-slide { flex: 0 0 86%; scroll-snap-align: center; }
+    .neet-slide {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    }
 
     /* Neutralize static scales on mobile viewports for clean scrolling swipe dynamics */
     .plan-card.advanced {
@@ -1194,7 +1197,7 @@
   }
 
   @media (max-width: 600px) {
-    .neet-slide { flex: 0 0 100%; }
+    .neet-slide { flex: 0 0 80%; }
     .checks span { height: auto; min-height: 44px; font-size: 13.5px; padding: 10px 20px; }
     .advanced-note { min-height: 44px; font-size: 12px; }
     .plan-top h4 { font-size: 23px; margin: 18px 0; }
