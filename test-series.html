@@ -887,7 +887,22 @@
           <div class="price" style="background: linear-gradient(135deg, #B76DFF 0%, #6c25db 100%); border-color: rgba(183, 109, 255, 0.35);">₹1499</div>
         </div>
 
-        <div class="advanced-note">Includes All Essential Features</div>
+        <div class="essential-included">
+
+    <div class="mini-essential-card">
+
+        <img src="Tesetseriesimage/neetessential.jpeg" alt="Essential">
+
+        <div class="plus-badge">+</div>
+
+    </div>
+
+    <div class="essential-text">
+        <strong>Includes All Essential Features</strong>
+        <span>Everything from the Essential plan, plus exclusive Advanced features below.</span>
+    </div>
+
+</div>
 
 <div class="checks">
 
@@ -935,6 +950,315 @@
 </section>
 
 <style>
+  /* ===============================
+   Essential Included Premium Block
+==================================*/
+
+.essential-included{
+
+display:flex;
+align-items:center;
+gap:26px;
+
+padding:28px 30px;
+
+background:linear-gradient(
+180deg,
+rgba(183,109,255,.08),
+rgba(183,109,255,.03)
+);
+
+border-bottom:1px solid rgba(183,109,255,.15);
+
+overflow:hidden;
+
+}
+
+/* ===============================
+   Essential Card
+==================================*/
+
+.mini-essential-card{
+
+position:relative;
+
+width:155px;
+height:105px;
+
+flex-shrink:0;
+
+transform:rotate(-12deg);
+
+animation:floatCard 4s ease-in-out infinite;
+
+transition:
+transform .45s ease,
+filter .45s ease;
+
+}
+
+/* Hover */
+
+.plan-card.advanced:hover .mini-essential-card{
+
+transform:
+rotate(-4deg)
+translateY(-10px)
+scale(1.08);
+
+filter:brightness(1.08);
+
+}
+
+/* ===============================
+   Image
+==================================*/
+
+.mini-essential-card img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+border-radius:18px;
+
+border:2px solid rgba(255,255,255,.18);
+
+box-shadow:
+0 20px 45px rgba(0,0,0,.45),
+0 0 35px rgba(183,109,255,.15);
+
+transition:
+transform .45s ease,
+box-shadow .45s ease;
+
+}
+
+.plan-card.advanced:hover .mini-essential-card img{
+
+box-shadow:
+0 30px 60px rgba(0,0,0,.55),
+0 0 45px rgba(183,109,255,.35);
+
+}
+
+/* ===============================
+   Plus Badge
+==================================*/
+
+.plus-badge{
+
+position:absolute;
+
+right:-12px;
+bottom:-12px;
+
+width:38px;
+height:38px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:24px;
+font-weight:900;
+
+background:linear-gradient(
+135deg,
+#B76DFF,
+#4CD7F6
+);
+
+color:#fff;
+
+box-shadow:
+0 10px 25px rgba(183,109,255,.45);
+
+animation:
+pulseBadge 2s ease-in-out infinite,
+glowBadge 4s linear infinite;
+
+}
+
+/* ===============================
+   Text
+==================================*/
+
+.essential-text{
+
+display:flex;
+flex-direction:column;
+
+}
+
+.essential-text strong{
+
+font-size:17px;
+
+font-weight:800;
+
+color:#fff;
+
+margin-bottom:8px;
+
+font-family:'Outfit',sans-serif;
+
+}
+
+.essential-text span{
+
+font-size:14px;
+
+line-height:1.7;
+
+color:#a1a1aa;
+
+max-width:330px;
+
+}
+
+/* ===============================
+   Floating Animation
+==================================*/
+
+@keyframes floatCard{
+
+0%{
+
+transform:
+rotate(-12deg)
+translateY(0px);
+
+}
+
+25%{
+
+transform:
+rotate(-10deg)
+translateY(-7px);
+
+}
+
+50%{
+
+transform:
+rotate(-12deg)
+translateY(0);
+
+}
+
+75%{
+
+transform:
+rotate(-14deg)
+translateY(7px);
+
+}
+
+100%{
+
+transform:
+rotate(-12deg)
+translateY(0);
+
+}
+
+}
+
+/* ===============================
+   Pulse
+==================================*/
+
+@keyframes pulseBadge{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.18);
+
+}
+
+}
+
+/* ===============================
+   Glow
+==================================*/
+
+@keyframes glowBadge{
+
+0%{
+
+box-shadow:
+0 0 0 rgba(183,109,255,.25);
+
+}
+
+50%{
+
+box-shadow:
+0 0 30px rgba(183,109,255,.75);
+
+}
+
+100%{
+
+box-shadow:
+0 0 0 rgba(183,109,255,.25);
+
+}
+
+}
+
+/* ===============================
+   Responsive
+==================================*/
+
+@media(max-width:768px){
+
+.essential-included{
+
+gap:18px;
+padding:22px;
+
+}
+
+.mini-essential-card{
+
+width:120px;
+height:82px;
+
+}
+
+.essential-text strong{
+
+font-size:15px;
+
+}
+
+.essential-text span{
+
+font-size:13px;
+
+}
+
+.plus-badge{
+
+width:32px;
+height:32px;
+
+font-size:20px;
+
+}
+
+}
   /* Balanced 2-Column Desktop Grid with Vertical Alignment */
   .neet-plan-layout {
     display: grid;
