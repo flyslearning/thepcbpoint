@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Pay Fees | The PCB Point</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -25,11 +26,11 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background:linear-gradient(-45deg,#4f46e5,#2563eb,#06b6d4,#10b981);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-
 padding:20px;
+
+background:linear-gradient(-45deg,#2563eb,#4f46e5,#0ea5e9,#10b981);
+background-size:400% 400%;
+animation:bg 15s infinite ease;
 
 }
 
@@ -44,19 +45,19 @@ padding:20px;
 .card{
 
 width:100%;
-max-width:450px;
+max-width:470px;
 
 background:rgba(255,255,255,.15);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(22px);
 
 border:1px solid rgba(255,255,255,.25);
 
-border-radius:25px;
+border-radius:30px;
 
 padding:35px;
 
-box-shadow:0 20px 45px rgba(0,0,0,.25);
+box-shadow:0 25px 60px rgba(0,0,0,.25);
 
 animation:fade .8s ease;
 
@@ -65,35 +66,39 @@ animation:fade .8s ease;
 @keyframes fade{
 
 from{
+
 opacity:0;
 transform:translateY(30px);
+
 }
 
 to{
+
 opacity:1;
 transform:none;
+
 }
 
 }
 
 .logo{
 
-width:80px;
-height:80px;
+width:90px;
+height:90px;
 
 margin:auto;
 
 border-radius:50%;
 
-background:#fff;
+background:white;
 
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 
-font-size:38px;
+font-size:42px;
 
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+box-shadow:0 12px 30px rgba(0,0,0,.18);
 
 margin-bottom:20px;
 
@@ -101,60 +106,167 @@ margin-bottom:20px;
 
 h2{
 
+color:white;
 text-align:center;
-color:#fff;
-font-weight:600;
-margin-bottom:5px;
+font-weight:700;
 
 }
 
-.brand{
+.subtitle{
 
 text-align:center;
-color:#eef;
+color:#e2e8f0;
+
 margin-bottom:30px;
+
 font-size:14px;
+
+}
+
+.amount-box{
+
+background:rgba(255,255,255,.12);
+
+border-radius:20px;
+
+padding:20px;
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+.amount-label{
+
+color:#dbeafe;
+
+font-size:14px;
+
+}
+
+.amount{
+
+font-size:42px;
+
+font-weight:800;
+
+color:#22c55e;
+
+margin-top:5px;
 
 }
 
 .row{
 
 display:flex;
+
 justify-content:space-between;
-align-items:center;
+
+gap:20px;
 
 padding:16px 0;
 
-border-bottom:1px solid rgba(255,255,255,.15);
+border-bottom:1px solid rgba(255,255,255,.12);
 
 }
 
 .label{
 
 color:#dbeafe;
+
 font-size:14px;
 
 }
 
 .value{
 
-color:#fff;
+color:white;
+
 font-weight:600;
+
 text-align:right;
 
-}
-
-.amount{
-
-font-size:32px;
-color:#22c55e;
-font-weight:700;
+word-break:break-word;
 
 }
 
-button{
+.upi-box{
 
-margin-top:35px;
+margin-top:20px;
+
+display:flex;
+
+gap:10px;
+
+}
+
+.upi-box input{
+
+flex:1;
+
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+background:rgba(255,255,255,.12);
+
+color:white;
+
+outline:none;
+
+font-weight:600;
+
+}
+
+.upi-box button{
+
+width:auto;
+
+padding:14px 18px;
+
+margin:0;
+
+border:none;
+
+border-radius:12px;
+
+background:#2563eb;
+
+color:white;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+.qr{
+
+margin:25px auto;
+
+display:flex;
+justify-content:center;
+
+}
+
+.qr img{
+
+width:190px;
+
+border-radius:15px;
+
+background:white;
+
+padding:10px;
+
+}
+
+.pay-btn{
+
+margin-top:15px;
 
 width:100%;
 
@@ -162,66 +274,27 @@ padding:18px;
 
 border:none;
 
-border-radius:16px;
+border-radius:18px;
 
 font-size:18px;
 
-font-weight:600;
+font-weight:700;
 
 cursor:pointer;
 
-color:#fff;
+color:white;
 
 background:linear-gradient(135deg,#16a34a,#22c55e);
 
+box-shadow:0 15px 35px rgba(34,197,94,.4);
+
 transition:.3s;
 
-box-shadow:0 12px 25px rgba(34,197,94,.45);
-
-position:relative;
-
-overflow:hidden;
-
 }
 
-button:hover{
+.pay-btn:hover{
 
 transform:translateY(-3px);
-box-shadow:0 18px 35px rgba(34,197,94,.6);
-
-}
-
-button:active{
-
-transform:scale(.97);
-
-}
-
-button:before{
-
-content:'';
-
-position:absolute;
-
-top:0;
-left:-100%;
-
-width:100%;
-height:100%;
-
-background:rgba(255,255,255,.3);
-
-transform:skewX(-25deg);
-
-animation:shine 2.2s infinite;
-
-}
-
-@keyframes shine{
-
-100%{
-left:150%;
-}
 
 }
 
@@ -231,9 +304,9 @@ margin-top:20px;
 
 text-align:center;
 
-color:#eee;
+color:#f1f5f9;
 
-font-size:12px;
+font-size:13px;
 
 }
 
@@ -243,9 +316,35 @@ display:none;
 
 color:white;
 
-font-size:22px;
+font-size:26px;
+
+font-weight:700;
 
 text-align:center;
+
+}
+
+@media(max-width:500px){
+
+.card{
+
+padding:25px;
+
+}
+
+.amount{
+
+font-size:34px;
+
+}
+
+.logo{
+
+width:75px;
+height:75px;
+font-size:36px;
+
+}
 
 }
 
@@ -257,43 +356,75 @@ text-align:center;
 
 <div class="card" id="content">
 
-<div class="logo">💳</div>
+<div class="logo">
+💳
+</div>
 
 <h2>Pay Fees</h2>
 
-<div class="brand">The PCB Point</div>
+<div class="subtitle">
+The PCB Point
+</div>
 
-<div class="row">
-<div class="label">Fees</div>
-<div class="value amount" id="amount"></div>
+<div class="amount-box">
+
+<div class="amount-label">
+Amount Payable
+</div>
+
+<div class="amount" id="amount">
+₹0
+</div>
+
 </div>
 
 <div class="row">
-<div class="label">To</div>
+<div class="label">
+To
+</div>
+
 <div class="value">
 Pecemb Point Education Private Limited
 </div>
 </div>
 
 <div class="row">
-<div class="label">UPI ID</div>
-<div class="value">
-9599582389-3@ybl
+<div class="label">
+Program
 </div>
+
+<div class="value" id="program"></div>
 </div>
 
 <div class="row">
-<div class="label">Note</div>
+<div class="label">
+Payment Note
+</div>
+
 <div class="value" id="note"></div>
 </div>
 
-<button onclick="payNow()">
+<div class="upi-box">
+
+<input id="upiField" readonly>
+
+<button onclick="copyUPI()">
+Copy
+</button>
+
+</div>
+
+<div class="qr">
+<img id="qrImage">
+</div>
+
+<button class="pay-btn" onclick="payNow()">
 🚀 Pay via UPI
 </button>
 
 <div class="footer">
 
-Supports Google Pay • PhonePe • Paytm • BHIM
+Google Pay • PhonePe • Paytm • BHIM
 
 </div>
 
@@ -309,21 +440,20 @@ Invalid Payment Link
 
 const UPI_ID="9599582389-3@ybl";
 
-const BRAND_NAME="The PCB Point";
-
 const BUSINESS_NAME="Pecemb Point Education Private Limited";
 
 const params=new URLSearchParams(window.location.search);
 
-const program=params.get("program");
-
 const amount=params.get("amount");
 
-const note=params.get("note") || (program+" Fees");
+const program=params.get("program");
 
-if(!program || !amount){
+const note=params.get("note") || `${program} Fees`;
+
+if(!amount || !program || Number(amount)<=0){
 
 document.getElementById("content").style.display="none";
+
 document.getElementById("error").style.display="block";
 
 }else{
@@ -331,18 +461,30 @@ document.getElementById("error").style.display="block";
 document.getElementById("amount").innerHTML=
 "₹"+Number(amount).toLocaleString("en-IN");
 
+document.getElementById("program").textContent=program;
+
 document.getElementById("note").textContent=note;
+
+document.getElementById("upiField").value=UPI_ID;
+
+const upi=`upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(BUSINESS_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+document.getElementById("qrImage").src=
+"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+encodeURIComponent(upi);
+
+}
+
+function copyUPI(){
+
+navigator.clipboard.writeText(UPI_ID);
+
+alert("UPI ID Copied");
 
 }
 
 function payNow(){
 
-const upi=
-`upi://pay?pa=${encodeURIComponent(UPI_ID)}
-&pn=${encodeURIComponent(BUSINESS_NAME)}
-&am=${encodeURIComponent(amount)}
-&cu=INR
-&tn=${encodeURIComponent(note)}`.replace(/\n/g,'');
+const upi=`upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(BUSINESS_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
 
 window.location.href=upi;
 
