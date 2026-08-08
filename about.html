@@ -550,7 +550,16 @@
 
   <div class="about-container">
 
+    <!-- LEFT CONTENT -->
     <div class="about-content">
+
+      <!-- RECTANGLE LOGO -->
+      <div class="about-brand-logo">
+        <img
+          src="Assets/logo-rec.png"
+          alt="The PCB Point"
+        >
+      </div>
 
       <p class="about-tag">About Us</p>
 
@@ -560,71 +569,157 @@
       </h1>
 
       <p class="about-lead">
-        To provide NEET aspirants with authentic guidance, honest support, and real personalized mentorship.
+        To provide NEET aspirants with authentic guidance,
+        honest support, and real personalized mentorship.
       </p>
 
       <div class="about-text">
+
         <p>
-          The PCB Point started in <strong>2018</strong> as a small Instagram page with one goal — to provide NEET aspirants with authentic guidance and support.
+          The PCB Point started in <strong>2018</strong>
+          as a small Instagram page with one goal —
+          to provide NEET aspirants with authentic guidance
+          and support.
         </p>
 
         <p>
-          Our founder experienced firsthand how confusing the NEET journey can be without proper mentorship. Determined to help students avoid the same mistakes, he began sharing honest advice and preparation strategies online.
+          Our founder experienced firsthand how confusing
+          the NEET journey can be without proper mentorship.
+          Determined to help students avoid the same mistakes,
+          he began sharing honest advice and preparation
+          strategies online.
         </p>
 
         <p>
-          What started as a single page soon grew into a nationwide community. Today, The PCB Point is powered by a team of medical students and mentors from top medical colleges across India, dedicated to helping the next generation of doctors achieve their dreams.
+          What started as a single page soon grew into a
+          nationwide community. Today, The PCB Point is powered
+          by a team of medical students and mentors from top
+          medical colleges across India, dedicated to helping
+          the next generation of doctors achieve their dreams.
         </p>
 
         <p>
-          Over the years, our students have secured admissions in <strong>AIIMS</strong> and other leading medical colleges across India and abroad. Our mentorship has helped students achieve outstanding results, including <strong>AIR 287 in NEET 2025</strong>.
+          Over the years, our students have secured admissions
+          in <strong>AIIMS</strong> and other leading medical
+          colleges across India and abroad. Our mentorship has
+          helped students achieve outstanding results, including
+          <strong>AIR 287 in NEET 2025</strong>.
         </p>
+
       </div>
 
+
+      <!-- MISSION BOX -->
       <div class="about-mission">
+
         <span>💚</span>
+
         <p>
-          At The PCB Point, our mission remains simple: to make quality guidance and
-          <strong>real personalized mentorship</strong> accessible to every NEET aspirant.
+          At The PCB Point, our mission remains simple:
+          to make quality guidance and
+          <strong>real personalized mentorship</strong>
+          accessible to every NEET aspirant.
         </p>
+
       </div>
 
+
+      <!-- BUTTONS -->
       <div class="about-actions">
-        <a href="https://wa.me/916289459483" class="about-btn primary">Join Mentorship</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGm6Al6mGzXF7lIgnuVL6ABBEHRFWoPwIt32pjHFgZUjXkUg/viewform" class="about-btn primary">Join as a Mentor</a>
-        <a href="testimonials.html" class="about-btn secondary">View Results</a>
+
+        <a
+          href="https://wa.me/916289459483"
+          class="about-btn primary"
+        >
+          Join Mentorship
+        </a>
+
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeGm6Al6mGzXF7lIgnuVL6ABBEHRFWoPwIt32pjHFgZUjXkUg/viewform"
+          class="about-btn primary"
+        >
+          Join as a Mentor
+        </a>
+
+        <a
+          href="testimonials.html"
+          class="about-btn secondary"
+        >
+          View Results
+        </a>
+
       </div>
 
     </div>
 
+
+    <!-- RIGHT SIDE STATS -->
     <div class="about-stats">
 
+      <!-- BIG CARD -->
       <div class="stat-card big">
+
+        <!-- SQUARE LOGO -->
+        <img
+          src="Assets/logo-square.png"
+          alt="The PCB Point"
+          class="stat-brand-logo"
+        >
+
         <h2>2018</h2>
-        <p>Started as an Instagram guidance page</p>
+
+        <p>
+          Started as an Instagram guidance page
+        </p>
+
       </div>
 
+
       <div class="stat-card">
+
         <h2>AIIMS</h2>
-        <p>Students selected in top medical colleges</p>
+
+        <p>
+          Students selected in top medical colleges
+        </p>
+
       </div>
 
+
       <div class="stat-card">
+
         <h2>AIR 287</h2>
-        <p>Outstanding NEET 2025 result</p>
+
+        <p>
+          Outstanding NEET 2025 result
+        </p>
+
       </div>
 
+
       <div class="stat-card">
+
         <h2>India</h2>
-        <p>Nationwide student community</p>
+
+        <p>
+          Nationwide student community
+        </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
+
 <style>
+
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
 .about-page{
   position:relative;
   min-height:100vh;
@@ -633,6 +728,11 @@
   overflow:hidden;
   font-family:"Plus Jakarta Sans",sans-serif;
 }
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
 
 .about-glow{
   position:absolute;
@@ -643,11 +743,13 @@
   pointer-events:none;
 }
 
+
 .glow-left{
   top:-160px;
   left:-170px;
   background:rgba(142,224,0,.18);
 }
+
 
 .glow-right{
   right:-180px;
@@ -655,1002 +757,731 @@
   background:rgba(76,215,246,.15);
 }
 
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
 .about-container{
   max-width:1350px;
   margin:auto;
+
   display:grid;
   grid-template-columns:1.15fr .85fr;
+
   gap:60px;
   align-items:center;
+
   position:relative;
   z-index:2;
 }
 
+
+/* =========================================================
+   RECTANGLE LOGO
+========================================================= */
+
+.about-brand-logo{
+  display:flex;
+  align-items:center;
+
+  margin-bottom:24px;
+}
+
+
+.about-brand-logo img{
+  display:block;
+
+  width:clamp(
+    160px,
+    18vw,
+    230px
+  );
+
+  height:auto;
+
+  max-height:90px;
+
+  object-fit:contain;
+  object-position:left center;
+}
+
+
+/* =========================================================
+   ABOUT TAG
+========================================================= */
+
 .about-tag{
   color:#8EE000;
+
   font-size:12px;
+
   letter-spacing:.35em;
+
   text-transform:uppercase;
+
   font-weight:1000;
+
   margin-bottom:18px;
 }
 
+
+/* =========================================================
+   MAIN HEADING
+========================================================= */
+
 .about-content h1{
   color:#fff;
-  font-size:clamp(3rem,7vw,6.2rem);
+
+  font-size:clamp(
+    3rem,
+    7vw,
+    6.2rem
+  );
+
   line-height:.95;
+
   letter-spacing:-.06em;
+
   margin:0;
+
   font-weight:1000;
 }
 
+
 .about-content h1 span{
   display:block;
-  background:linear-gradient(90deg,#8EE000,#ffffff,#4CD7F6);
+
+  background:linear-gradient(
+    90deg,
+    #8EE000,
+    #ffffff,
+    #4CD7F6
+  );
+
   -webkit-background-clip:text;
+  background-clip:text;
+
   -webkit-text-fill-color:transparent;
 }
 
+
+/* =========================================================
+   LEAD TEXT
+========================================================= */
+
 .about-lead{
   max-width:760px;
+
   color:#d8d8d8;
+
   font-size:21px;
+
   line-height:1.7;
+
   font-weight:700;
+
   margin:28px 0;
 }
 
+
+/* =========================================================
+   ABOUT PARAGRAPHS
+========================================================= */
+
 .about-text{
   display:grid;
+
   gap:18px;
 }
 
+
 .about-text p{
   color:#a7a7a7;
+
   font-size:16px;
+
   line-height:1.9;
+
   margin:0;
+
   font-weight:600;
 }
+
 
 .about-text strong{
   color:#fff;
 }
 
+
+/* =========================================================
+   MISSION BOX
+========================================================= */
+
 .about-mission{
   display:flex;
+
   gap:16px;
+
   align-items:flex-start;
+
   margin-top:32px;
+
   padding:24px;
+
   border-radius:26px;
-  background:linear-gradient(135deg,rgba(142,224,0,.12),rgba(76,215,246,.08));
-  border:1px solid rgba(142,224,0,.25);
+
+  background:linear-gradient(
+    135deg,
+    rgba(142,224,0,.12),
+    rgba(76,215,246,.08)
+  );
+
+  border:1px solid
+    rgba(142,224,0,.25);
 }
+
 
 .about-mission span{
   font-size:30px;
+
+  flex-shrink:0;
 }
+
 
 .about-mission p{
   color:#f1f1f1;
+
   font-size:17px;
+
   line-height:1.75;
+
   font-weight:700;
+
   margin:0;
 }
+
 
 .about-mission strong{
   color:#8EE000;
 }
 
+
+/* =========================================================
+   BUTTON AREA
+========================================================= */
+
 .about-actions{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:14px;
+
   margin-top:32px;
 }
 
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
 .about-btn{
   display:inline-flex;
+
   align-items:center;
+
   justify-content:center;
+
   padding:16px 24px;
+
   border-radius:999px;
+
   text-decoration:none;
+
   font-weight:1000;
-  transition:.35s ease;
+
+  transition:
+    transform .35s ease,
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
 }
+
+
+/* PRIMARY */
 
 .about-btn.primary{
   background:#8EE000;
+
   color:#000;
-  box-shadow:0 18px 45px rgba(142,224,0,.22);
+
+  box-shadow:
+    0 18px 45px
+    rgba(142,224,0,.22);
 }
 
+
+/* SECONDARY */
+
 .about-btn.secondary{
-  background:rgba(255,255,255,.08);
+  background:
+    rgba(255,255,255,.08);
+
   color:#fff;
-  border:1px solid rgba(255,255,255,.16);
+
+  border:
+    1px solid
+    rgba(255,255,255,.16);
 }
+
+
+/* HOVER */
 
 .about-btn:hover{
   transform:translateY(-4px);
 }
 
+
+.about-btn.primary:hover{
+  box-shadow:
+    0 22px 55px
+    rgba(142,224,0,.30);
+}
+
+
+.about-btn.secondary:hover{
+  border-color:
+    rgba(142,224,0,.35);
+
+  background:
+    rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   RIGHT SIDE STATS GRID
+========================================================= */
+
 .about-stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:20px;
 }
 
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
 .stat-card{
   min-height:190px;
+
   padding:28px;
+
   border-radius:32px;
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 24px 80px rgba(0,0,0,.5);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.035)
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,.12);
+
+  box-shadow:
+    0 24px 80px
+    rgba(0,0,0,.5);
+
   display:flex;
+
   flex-direction:column;
+
   justify-content:flex-end;
-  transition:.35s ease;
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
 }
 
+
+/* =========================================================
+   BIG 2018 CARD
+========================================================= */
+
 .stat-card.big{
+  position:relative;
+
+  overflow:hidden;
+
   grid-column:span 2;
+
   min-height:260px;
-  background:linear-gradient(135deg,rgba(142,224,0,.16),rgba(255,255,255,.04));
-  border-color:rgba(142,224,0,.28);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(142,224,0,.16),
+      rgba(255,255,255,.04)
+    );
+
+  border-color:
+    rgba(142,224,0,.28);
 }
+
+
+/* =========================================================
+   SQUARE LOGO INSIDE 2018 CARD
+========================================================= */
+
+.stat-brand-logo{
+  position:absolute;
+
+  top:24px;
+
+  right:24px;
+
+  width:76px;
+
+  height:76px;
+
+  padding:8px;
+
+  object-fit:contain;
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,.14);
+
+  box-shadow:
+    0 16px 45px
+    rgba(0,0,0,.30);
+}
+
+
+/* =========================================================
+   STAT CARD HOVER
+========================================================= */
 
 .stat-card:hover{
   transform:translateY(-8px);
-  border-color:rgba(142,224,0,.45);
-  box-shadow:0 35px 100px rgba(0,0,0,.75),0 0 45px rgba(142,224,0,.13);
+
+  border-color:
+    rgba(142,224,0,.45);
+
+  box-shadow:
+    0 35px 100px
+      rgba(0,0,0,.75),
+
+    0 0 45px
+      rgba(142,224,0,.13);
 }
+
+
+/* =========================================================
+   STAT NUMBERS
+========================================================= */
 
 .stat-card h2{
   color:#fff;
-  font-size:clamp(2rem,5vw,4.4rem);
+
+  font-size:clamp(
+    2rem,
+    5vw,
+    4.4rem
+  );
+
   line-height:1;
-  margin:0 0 14px;
+
+  margin:
+    0 0 14px;
+
   font-weight:1000;
+
   letter-spacing:-.05em;
 }
 
+
+/* =========================================================
+   STAT TEXT
+========================================================= */
+
 .stat-card p{
   color:#aaa;
+
   margin:0;
+
   line-height:1.6;
+
   font-size:15px;
+
   font-weight:700;
 }
 
+
+/* =========================================================
+   TABLET
+========================================================= */
+
 @media(max-width:950px){
+
   .about-container{
     grid-template-columns:1fr;
+
     gap:45px;
   }
+
+
+  .about-content{
+    max-width:850px;
+  }
+
+
+  .about-stats{
+    max-width:850px;
+
+    width:100%;
+  }
+
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:600px){
+
   .about-page{
-    padding:115px 14px 80px;
+    padding:
+      115px
+      14px
+      80px;
   }
+
+
+  /* RECTANGLE LOGO */
+
+  .about-brand-logo{
+    margin-bottom:18px;
+  }
+
+
+  .about-brand-logo img{
+    width:150px;
+
+    max-height:68px;
+  }
+
+
+  /* TAG */
 
   .about-tag{
     font-size:10px;
+
     letter-spacing:.25em;
+
+    margin-bottom:14px;
   }
 
+
+  /* HEADING */
+
   .about-content h1{
-    font-size:clamp(2.6rem,13vw,4.2rem);
+    font-size:clamp(
+      2.6rem,
+      13vw,
+      4.2rem
+    );
+
+    line-height:1;
   }
+
+
+  /* LEAD */
 
   .about-lead{
     font-size:16px;
+
     line-height:1.75;
+
     margin:22px 0;
   }
 
+
+  /* PARAGRAPH */
+
+  .about-text{
+    gap:16px;
+  }
+
+
   .about-text p{
     font-size:14.5px;
+
     line-height:1.8;
   }
 
+
+  /* MISSION */
+
   .about-mission{
     padding:20px;
+
     border-radius:22px;
+
+    gap:13px;
+
+    margin-top:26px;
   }
+
+
+  .about-mission span{
+    font-size:25px;
+  }
+
 
   .about-mission p{
     font-size:14.5px;
   }
 
+
+  /* BUTTONS */
+
   .about-actions{
     flex-direction:column;
+
+    margin-top:26px;
+
+    gap:12px;
   }
+
 
   .about-btn{
     width:100%;
+
+    box-sizing:border-box;
+
+    padding:15px 18px;
   }
+
+
+  /* STATS */
 
   .about-stats{
     grid-template-columns:1fr;
+
+    gap:15px;
   }
+
 
   .stat-card,
   .stat-card.big{
     grid-column:auto;
+
     min-height:170px;
+
     border-radius:26px;
+
     padding:24px;
   }
+
+
+  /* SQUARE LOGO */
+
+  .stat-brand-logo{
+    top:18px;
+
+    right:18px;
+
+    width:58px;
+
+    height:58px;
+
+    padding:6px;
+
+    border-radius:18px;
+  }
+
+
+  .stat-card h2{
+    font-size:
+      clamp(
+        2.4rem,
+        13vw,
+        4rem
+      );
+  }
+
+
+  .stat-card p{
+    font-size:14px;
+  }
+
 }
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+  .about-page{
+    padding-left:12px;
+
+    padding-right:12px;
+  }
+
+
+  .about-brand-logo img{
+    width:135px;
+  }
+
+
+  .about-content h1{
+    font-size:2.45rem;
+  }
+
+
+  .about-mission{
+    padding:17px;
+  }
+
+
+  .stat-card,
+  .stat-card.big{
+    padding:21px;
+
+    min-height:160px;
+  }
+
+
+  .stat-brand-logo{
+    width:52px;
+
+    height:52px;
+
+    top:16px;
+
+    right:16px;
+  }
+
+}
+
 </style>
-
-<style>
-  html {
-    scroll-padding-top: 120px;
-  }
-
-  .test-series-section {
-    position: relative;
-    padding: 160px 20px 115px;
-    background: #050505;
-    overflow: hidden;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    color: #fff;
-  }
-
-  .test-glow {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(140px);
-    pointer-events: none;
-  }
-
-  .glow-one {
-    width: 540px;
-    height: 540px;
-    top: -120px;
-    left: -160px;
-    background: rgba(132, 204, 22, 0.13);
-  }
-
-  .glow-two {
-    width: 560px;
-    height: 560px;
-    right: -180px;
-    bottom: -200px;
-    background: rgba(76, 215, 246, 0.13);
-  }
-
-  .test-container {
-    position: relative;
-    z-index: 2;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .test-hero-top {
-    text-align: center;
-    max-width: 1050px;
-    margin: 0 auto 52px;
-  }
-
-  .test-kicker,
-  .test-header p,
-  .faq-heading p {
-    color: #8ee000;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: .35em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .test-hero-top h1 {
-    margin: 0;
-    color: #fff;
-    font-size: clamp(2.9rem, 7vw, 6.7rem);
-    line-height: 1.08;
-    letter-spacing: -0.045em;
-    font-weight: 1000;
-    padding-bottom: 8px;
-  }
-
-  .test-hero-top h1 span,
-  .test-header h2 span,
-  .faq-heading h2 span {
-    display: block;
-    padding-bottom: 8px;
-    background: linear-gradient(90deg, #8ee000, #fff, #4cd7f6);
-    background-size: 260%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textMove 5s linear infinite;
-  }
-
-  .test-hero-desc {
-    max-width: 760px;
-    margin: 24px auto 0;
-    color: #9f9f9f;
-    font-size: 18px;
-    line-height: 1.8;
-    font-weight: 600;
-  }
-
-  .top-feature-slider {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    overflow: hidden;
-    position: relative;
-    padding: 12px 0 70px;
-  }
-
-  .top-feature-slider::before,
-  .top-feature-slider::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 130px;
-    height: 100%;
-    z-index: 4;
-    pointer-events: none;
-  }
-
-  .top-feature-slider::before {
-    left: 0;
-    background: linear-gradient(90deg, #050505, transparent);
-  }
-
-  .top-feature-slider::after {
-    right: 0;
-    background: linear-gradient(270deg, #050505, transparent);
-  }
-
-  .top-feature-track {
-    display: flex;
-    gap: 16px;
-    width: max-content;
-    animation: miniSlide 22s linear infinite;
-    will-change: transform;
-    pointer-events: none;
-  }
-
-  @keyframes miniSlide {
-    from { transform: translate3d(0,0,0); }
-    to { transform: translate3d(-50%,0,0); }
-  }
-
-  .mini-card {
-    flex: 0 0 260px;
-    min-height: 110px;
-    border-radius: 28px;
-    padding: 20px 16px;
-    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-    border: 1px solid rgba(255,255,255,.12);
-    box-shadow: 0 28px 90px rgba(0,0,0,.35);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    user-select: none;
-  }
-
-  .mini-card span {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    display: grid;
-    place-items: center;
-    border-radius: 16px;
-    background: rgba(255,255,255,.08);
-    font-size: 26px;
-  }
-
-  .mini-card p {
-    margin: 0;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 900;
-    line-height: 1.2;
-    text-align: left;
-  }
-
-  .test-header {
-    text-align: center;
-    max-width: 850px;
-    margin: 0 auto 60px;
-  }
-
-  .test-header h2,
-  .faq-heading h2 {
-    margin: 0;
-    color: #fff;
-    font-size: clamp(2.6rem, 7vw, 5.8rem);
-    line-height: 1.03;
-    letter-spacing: -0.05em;
-    font-weight: 1000;
-    padding-bottom: 8px;
-  }
-
-  .test-header h4 {
-    color: #8f8f8f;
-    font-size: 17px;
-    line-height: 1.7;
-    font-weight: 600;
-    margin-top: 20px;
-  }
-
-  @keyframes textMove {
-    to { background-position: 260%; }
-  }
-
-  .mobile-slider-top,
-  .mobile-dots {
-    display: none;
-  }
-
-  .test-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px;
-  }
-
-  .test-card {
-    position: relative;
-    padding: 34px;
-    border-radius: 34px;
-    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-    border: 1px solid rgba(255,255,255,.12);
-    backdrop-filter: blur(24px);
-    box-shadow: 0 30px 90px rgba(0,0,0,.45);
-    overflow: hidden;
-    transition: border-color .45s ease, box-shadow .45s ease, background .45s ease;
-    scroll-margin-top: 130px;
-  }
-
-  .test-card::before,
-  .faq-item::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, transparent, rgba(142,224,0,.55), rgba(76,215,246,.5), transparent);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: .35;
-    pointer-events: none;
-  }
-
-  .test-card:hover {
-    border-color: rgba(142,224,0,.45);
-    box-shadow: 0 38px 120px rgba(0,0,0,.65), 0 0 50px rgba(142,224,0,.12);
-  }
-
-  .featured-card {
-    border-color: rgba(142,224,0,.45);
-    box-shadow: 0 38px 120px rgba(0,0,0,.68), 0 0 55px rgba(142,224,0,.12);
-  }
-
-  .popular-badge {
-    width: fit-content;
-    padding: 9px 15px;
-    border-radius: 999px;
-    background: rgba(142,224,0,.13);
-    border: 1px solid rgba(142,224,0,.35);
-    color: #8ee000;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .card-top {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    margin-bottom: 28px;
-  }
-
-  .subject-icon {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    border-radius: 20px;
-    display: grid;
-    place-items: center;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.14);
-    font-size: 28px;
-  }
-
-  .card-top h3 {
-    margin: 0 0 10px;
-    color: #fff;
-    font-size: 26px;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    font-weight: 1000;
-  }
-
-  .card-top p {
-    margin: 0;
-    color: #999;
-    font-size: 14px;
-    line-height: 1.6;
-    font-weight: 600;
-  }
-
-  .price-box {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    margin-bottom: 26px;
-  }
-
-  .currency {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 900;
-    margin-bottom: 10px;
-  }
-
-  .price {
-    color: #fff;
-    font-size: 70px;
-    line-height: .85;
-    letter-spacing: -0.07em;
-    font-weight: 1000;
-  }
-
-  .duration {
-    color: #777;
-    font-size: 15px;
-    font-weight: 800;
-    margin-bottom: 8px;
-  }
-
-  .test-btn {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 17px 20px;
-    border-radius: 18px;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 1000;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-    transition: .35s ease;
-    margin-bottom: 28px;
-  }
-
-  .test-btn:hover {
-    background: #8ee000;
-  }
-
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 14px;
-  }
-
-  .feature-list li {
-    position: relative;
-    color: #d8d8d8;
-    font-size: 14px;
-    line-height: 1.45;
-    font-weight: 700;
-    padding-left: 30px;
-  }
-
-  .feature-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: -1px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: rgba(142,224,0,.12);
-    border: 1px solid rgba(142,224,0,.3);
-    color: #8ee000;
-    font-size: 11px;
-    font-weight: 900;
-  }
-
-  .test-faq-section {
-    margin-top: 110px;
-  }
-
-  .faq-heading {
-    text-align: center;
-    max-width: 850px;
-    margin: 0 auto 45px;
-  }
-
-  .faq-list {
-    display: grid;
-    gap: 16px;
-    max-width: 980px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    position: relative;
-    border-radius: 26px;
-    background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-    border: 1px solid rgba(255,255,255,.12);
-    overflow: hidden;
-    box-shadow: 0 25px 80px rgba(0,0,0,.38);
-    scroll-margin-top: 130px;
-  }
-
-  .faq-question {
-    width: 100%;
-    border: 0;
-    background: transparent;
-    color: #fff;
-    padding: 24px 26px;
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: center;
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-  }
-
-  .faq-question span {
-    font-size: 17px;
-    line-height: 1.35;
-    font-weight: 900;
-  }
-
-  .faq-question b {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: rgba(142,224,0,.12);
-    border: 1px solid rgba(142,224,0,.35);
-    color: #8ee000;
-    font-size: 26px;
-    transition: .3s ease;
-  }
-
-  .faq-item.active .faq-question b {
-    transform: rotate(45deg);
-    background: #8ee000;
-    color: #000;
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .45s ease;
-  }
-
-  .faq-answer p {
-    margin: 0;
-    padding: 0 26px 26px;
-    color: #b8b8b8;
-    font-size: 15px;
-    line-height: 1.75;
-    font-weight: 600;
-  }
-
-  @media (max-width: 1050px) and (min-width: 701px) {
-    .test-grid {
-      grid-template-columns: 1fr;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 700px) {
-    html {
-      scroll-padding-top: 105px;
-    }
-
-    .test-series-section {
-      padding: 135px 0 80px;
-    }
-
-    .test-hero-top {
-      padding: 0 16px;
-      margin-bottom: 42px;
-    }
-
-    .test-hero-top h1 {
-      font-size: clamp(2.15rem, 10vw, 3.65rem);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      padding-bottom: 12px;
-    }
-
-    .test-hero-top h1 span {
-      padding-bottom: 12px;
-    }
-
-    .test-hero-desc {
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .top-feature-slider {
-      padding: 8px 0 58px;
-    }
-
-    .top-feature-slider::before,
-    .top-feature-slider::after {
-      width: 45px;
-    }
-
-    .top-feature-track {
-      gap: 12px;
-      animation-duration: 18s;
-    }
-
-    .mini-card {
-      flex-basis: 220px;
-      min-height: 96px;
-      border-radius: 22px;
-      padding: 16px 14px;
-    }
-
-    .mini-card span {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      border-radius: 14px;
-      font-size: 22px;
-    }
-
-    .mini-card p {
-      font-size: 13px;
-    }
-
-    .test-header {
-      padding: 0 16px;
-      margin-bottom: 26px;
-    }
-
-    .test-header p,
-    .faq-heading p,
-    .test-kicker {
-      font-size: 10px;
-      letter-spacing: .22em;
-    }
-
-    .test-header h2,
-    .faq-heading h2 {
-      font-size: clamp(2.25rem, 11vw, 3.8rem);
-      line-height: 1.08;
-      padding-bottom: 12px;
-    }
-
-    .test-header h4 {
-      font-size: 14px;
-    }
-
-    .mobile-slider-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      margin-bottom: 18px;
-    }
-
-    .mobile-slider-top span {
-      color: #8ee000;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .mobile-arrows {
-      display: flex;
-      gap: 10px;
-    }
-
-    .mobile-arrows button {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid rgba(142,224,0,.35);
-      background: rgba(142,224,0,.10);
-      color: #fff;
-      font-size: 30px;
-      line-height: 1;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-    }
-
-    .mobile-arrows button:active {
-      background: #8ee000;
-      color: #000;
-      transform: scale(.92);
-    }
-
-    .test-grid {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      scroll-padding-left: 16px;
-      padding: 8px 16px 28px;
-      margin: 0;
-      max-width: none;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-    }
-
-    .test-grid::-webkit-scrollbar {
-      display: none;
-    }
-
-    .test-card {
-      flex: 0 0 86%;
-      max-width: 86%;
-      scroll-snap-align: center;
-      padding: 24px;
-      border-radius: 28px;
-      transform: none !important;
-      scroll-margin-top: 120px;
-    }
-
-    .card-top {
-      flex-direction: column;
-    }
-
-    .card-top h3 {
-      font-size: 24px;
-    }
-
-    .price {
-      font-size: 58px;
-    }
-
-    .test-btn {
-      font-size: 12px;
-      padding: 15px 16px;
-    }
-
-    .feature-list li {
-      font-size: 13px;
-    }
-
-    .mobile-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 99px;
-      background: rgba(255,255,255,.25);
-      transition: .3s ease;
-    }
-
-    .dot.active {
-      width: 24px;
-      background: #8ee000;
-      box-shadow: 0 0 20px rgba(142,224,0,.55);
-    }
-
-    .test-faq-section {
-      margin-top: 80px;
-      padding: 0 15px;
-    }
-
-    .faq-question {
-      padding: 20px;
-    }
-
-    .faq-question span {
-      font-size: 14px;
-    }
-
-    .faq-question b {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      font-size: 24px;
-    }
-
-    .faq-answer p {
-      padding: 0 20px 22px;
-      font-size: 14px;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .test-card {
-      flex-basis: 88%;
-      max-width: 88%;
-      padding: 22px;
-    }
-
-    .mini-card {
-      flex-basis: 200px;
-    }
-  }
-</style>
-
-<script>
-  const testSlider = document.getElementById("testSlider");
-  const testPrevBtn = document.getElementById("testPrevBtn");
-  const testNextBtn = document.getElementById("testNextBtn");
-  const dots = document.querySelectorAll(".mobile-dots .dot");
-
-  function getCardWidth() {
-    const card = testSlider.querySelector(".test-card");
-    return card.offsetWidth + 16;
-  }
-
-  function updateDots() {
-    if (window.innerWidth > 700) return;
-    const index = Math.round(testSlider.scrollLeft / getCardWidth());
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
-  }
-
-  testNextBtn.addEventListener("click", () => {
-    testSlider.scrollBy({ left: getCardWidth(), behavior: "smooth" });
-  });
-
-  testPrevBtn.addEventListener("click", () => {
-    testSlider.scrollBy({ left: -getCardWidth(), behavior: "smooth" });
-  });
-
-  testSlider.addEventListener("scroll", () => {
-    window.requestAnimationFrame(updateDots);
-  });
-
-  const faqItems = document.querySelectorAll(".faq-item");
-
-  faqItems.forEach((item) => {
-    const button = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-
-    if (item.classList.contains("active")) {
-      answer.style.maxHeight = answer.scrollHeight + "px";
-    }
-
-    button.addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-
-      faqItems.forEach((faq) => {
-        faq.classList.remove("active");
-        faq.querySelector(".faq-answer").style.maxHeight = null;
-      });
-
-      if (!isActive) {
-        item.classList.add("active");
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      }
-    });
-  });
-</script>
 
 
 <!-- main -->
