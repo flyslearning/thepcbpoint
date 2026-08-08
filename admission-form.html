@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXONA Admission Form</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f1f3f4;
+padding:30px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.header{
+background:#673ab7;
+color:white;
+padding:25px;
+}
+
+.header h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:16px;
+}
+
+.progress{
+height:8px;
+background:#ddd;
+}
+
+.progress-bar{
+height:100%;
+width:12.5%;
+background:#4CAF50;
+transition:.4s;
+}
+
+.form-step{
+display:none;
+padding:30px;
+animation:fade .4s;
+}
+
+.form-step.active{
+display:block;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h2{
+margin-bottom:20px;
+color:#333;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
+}
+
+textarea{
+resize:vertical;
+height:90px;
+}
+
+.radio-group{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:8px;
+}
+
+.radio-group label{
+font-weight:normal;
+}
+
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+.next{
+background:#673ab7;
+color:white;
+}
+
+.prev{
+background:#888;
+color:white;
+}
+
+button:hover{
+opacity:.9;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>AXONA ADMISSION FORM</h1>
+
+<p>
+Fill in all the details honestly so that we can help you with every minor problem.
+</p>
+
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- ========================= -->
+<!-- SECTION 1 -->
+<!-- ========================= -->
+
+<div class="form-step active">
+
+<h2>Welcome</h2>
+
+<p style="margin-bottom:20px;">
+This form will take approximately 10 minutes to complete.
+Please answer honestly.
+</p>
+
+<div class="input-group">
+
+<label>
+
+<input type="checkbox" required>
+
+I will answer honestly and carefully.
+
+</label>
+
+</div>
+
+<div class="buttons">
+
+<div></div>
+
+<button class="next" onclick="nextStep()">
+Next
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SECTION 2 -->
+<!-- ========================= -->
+
+<div class="form-step">
+
+<h2>Personal Details</h2>
+
+<div class="input-group">
+<label>Full Name</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Category</label>
+
+<select>
+
+<option>General</option>
+<option>OBC</option>
+<option>SC/ST</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+<label>Upload Photograph</label>
+<input type="file">
+</div>
+
+<div class="input-group">
+<label>Gender</label>
+
+<div class="radio-group">
+
+<label>
+<input type="radio" name="gender">
+Male
+</label>
+
+<label>
+<input type="radio" name="gender">
+Female
+</label>
+
+<label>
+<input type="radio" name="gender">
+Other
+</label>
+
+</div>
+
+</div>
+
+<div class="input-group">
+<label>Father's Name</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Mother's Name</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>WhatsApp Number</label>
+<input type="tel">
+</div>
+
+<div class="input-group">
+<label>Calling Number</label>
+<input type="tel">
+</div>
+
+<div class="input-group">
+<label>Parent's Number</label>
+<input type="tel">
+</div>
+
+<div class="input-group">
+
+<label>
+Whose number is shared?
+</label>
+
+<select>
+
+<option>Father</option>
+<option>Mother</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Preferred Language</label>
+
+<select>
+
+<option>Hindi</option>
+<option>English</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Syllabus Completion Deadline</label>
+
+<select>
+
+<option>January</option>
+<option>February</option>
+<option>March</option>
+<option>April</option>
+<option>May</option>
+<option>June</option>
+<option>July</option>
+<option>August</option>
+<option>September</option>
+<option>October</option>
+<option>November</option>
+<option>December</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Sleep Timing</label>
+
+<select>
+
+<option>10 PM - 12 AM</option>
+<option>12 AM - 2 AM</option>
+<option>2 AM - 4 AM</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>School / Coaching Hours</label>
+
+<select>
+
+<option>8 AM - 2 PM</option>
+<option>2 PM - 8 PM</option>
+<option>Flexible Hours</option>
+
+</select>
+
+</div>
+
+<div class="buttons">
+
+<button class="prev" onclick="prevStep()">
+Previous
+</button>
+
+<button class="next" onclick="nextStep()">
+Next
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let currentStep=0;
+
+const steps=document.querySelectorAll(".form-step");
+
+const progress=document.getElementById("progressBar");
+
+function showStep(i){
+
+steps.forEach(step=>step.classList.remove("active"));
+
+steps[i].classList.add("active");
+
+progress.style.width=((i+1)/8)*100+"%";
+
+}
+
+function nextStep(){
+
+if(currentStep<steps.length-1){
+
+currentStep++;
+
+showStep(currentStep);
+
+}
+
+}
+
+function prevStep(){
+
+if(currentStep>0){
+
+currentStep--;
+
+showStep(currentStep);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
