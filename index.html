@@ -604,8 +604,9 @@
     overflow: hidden;
     border-radius: 18px;
     background: #000;
+
     box-shadow:
-      0 20px 50px rgba(0, 0, 0, 0.35),
+      0 20px 50px rgba(0, 0, 0, 0.28),
       0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
@@ -617,74 +618,120 @@
     border: 0;
   }
 
-  /* Custom video cover */
+  /* VIDEO COVER */
   .video-cover {
     position: absolute;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     border: 0;
     padding: 0;
     margin: 0;
+
     cursor: pointer;
-    background: #000;
+    background: transparent;
+
     overflow: hidden;
     z-index: 2;
   }
 
+  /* THUMBNAIL */
   .video-thumbnail {
     position: absolute;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-    transition: transform 0.4s ease;
+
+    /* Photo clearly visible */
+    opacity: 1;
+
+    transition:
+      transform 0.4s ease,
+      filter 0.3s ease;
   }
 
+  /* VERY LIGHT OVERLAY */
   .video-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.22);
+
+    /* Pehle 0.22 tha, ab bahut light */
+    background: rgba(0, 0, 0, 0.06);
+
     transition: background 0.3s ease;
   }
 
-  /* Custom Player Icon */
+  /* TRANSPARENT GLASS PLAY BUTTON */
   .custom-play-btn {
     position: absolute;
+
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
+
     width: 82px;
     height: 82px;
+
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.95);
-    color: #111;
+
+    /* Very transparent white */
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.38);
+
+    /* White play icon */
+    color: #fff;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
+    /* Very light glass blur so photo behind remains visible */
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.20);
+
     transition:
       transform 0.25s ease,
-      background 0.25s ease;
+      background 0.25s ease,
+      border-color 0.25s ease;
   }
 
   .custom-play-btn svg {
     margin-left: 4px;
+
+    /* Icon thoda soft */
+    opacity: 0.95;
   }
 
+  /* HOVER */
   .video-cover:hover .video-thumbnail {
-    transform: scale(1.035);
+    transform: scale(1.025);
   }
 
   .video-cover:hover .video-overlay {
-    background: rgba(0, 0, 0, 0.32);
+    /* Hover par bhi thumbnail dark nahi hoga */
+    background: rgba(0, 0, 0, 0.10);
   }
 
   .video-cover:hover .custom-play-btn {
     transform: translate(-50%, -50%) scale(1.08);
-    background: #fff;
+
+    /* Still transparent */
+    background: rgba(255, 255, 255, 0.20);
+
+    border-color: rgba(255, 255, 255, 0.55);
   }
 
+  /* MOBILE */
   @media (max-width: 640px) {
     .hero-video-wrap {
       margin-top: 25px;
@@ -695,9 +742,18 @@
       border-radius: 12px;
     }
 
+    .video-overlay {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
     .custom-play-btn {
       width: 64px;
       height: 64px;
+
+      background: rgba(255, 255, 255, 0.12);
+
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
     }
 
     .custom-play-btn svg {
