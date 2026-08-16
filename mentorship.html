@@ -572,6 +572,393 @@
     </div>
     
 
+
+
+<!-- PREMIUM MENTORSHIP PLANS -->
+<section id="plans" class="plans-section">
+
+  <div class="plans-glow glow-left"></div>
+  <div class="plans-glow glow-right"></div>
+
+  <div class="plans-container">
+
+    <div class="plans-heading">
+      <p>Mentorship Plans</p>
+
+      <h2>
+        Choose Your
+        <span>Personalized Plan</span>
+      </h2>
+
+      <h4>
+        Personalized mentorship, tests, doubt solving and complete preparation support.
+      </h4>
+    </div>
+
+    <div class="plan-controls">
+      <button id="planPrev">‹</button>
+      <button id="planNext">›</button>
+    </div>
+
+    <div class="plans-grid" id="plansSlider">
+      <div class="plan-card">
+        <div class="plan-tag">Starter</div>
+        <h3>Elite Plan</h3>
+
+        <p class="plan-subtitle">
+          India's Best Personalized NEET Mentorship Program
+        </p>
+
+        <div class="plan-price">₹15,999</div>
+
+        <a href="https://wa.link/m98t9r" class="plan-btn">
+          Join Elite Plan
+        </a>
+
+        <ul>
+          <li>✅ 3-Level Mentorship System</li>
+          <li>✅ Private Group</li>
+          <li>✅ Mentorship Kit Box</li>
+          <li>✅ Dedicated Doubt Support</li>
+          <li>✅ Essential Test Series</li>
+        </ul>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="popular-ribbon">POPULAR</div>
+
+        <div class="plan-tag">Most Popular</div>
+        <h3>Pro Plan</h3>
+
+        <p class="plan-subtitle">
+          Top Quality Mentorship + Offline Test Series
+        </p>
+
+        <div class="plan-price">₹16,999</div>
+
+        <a href="https://wa.link/jsusb6" class="plan-btn">
+          Join Pro Plan
+        </a>
+
+        <ul>
+          <li>✅ 3-Level Mentorship System</li>
+          <li>✅ Private Group</li>
+          <li>✅ Mentorship Kit Box</li>
+          <li>✅ Dedicated Doubt Support</li>
+          <li>✴️ Advanced Test Series</li>
+        </ul>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-tag">Best Value</div>
+        <h3>Yakeen Plan</h3>
+
+        <p class="plan-subtitle">
+          Mentorship + Physics Wallah Yakeen Batch
+        </p>
+
+        <div class="plan-price">₹19,999</div>
+
+        <a href="https://wa.link/q3i2wk" class="plan-btn">
+          Join Yakeen Plan
+        </a>
+
+        <ul>
+          <li>✅ 3-Level Mentorship System</li>
+          <li>✅ Private Group</li>
+          <li>✅ Mentorship Kit Box</li>
+          <li>✅ Dedicated Doubt Support</li>
+          <li>✅ Advanced Test Series</li>
+          <li>✴️ PW Yakeen Batch</li>
+        </ul>
+      </div>
+
+      <div class="plan-card premium-card">
+        <div class="plan-tag premium-tag">Ultimate</div>
+        <h3>Max Plan</h3>
+
+        <p class="plan-subtitle">
+          Complete Premium NEET Success Package
+        </p>
+
+        <div class="plan-price premium-price">₹29,999</div>
+
+        <a href="https://wa.link/l1sviy" class="plan-btn premium-btn">
+          Join Max Plan
+        </a>
+
+        <ul>
+          <li>✅ Private Group</li>
+          <li>✅ Mentorship Kit Box</li>
+          <li>✅ Dedicated Doubt Support</li>
+          <li>✴️ Advanced Test Series</li>
+          <li>✴️ 4-Level Mentorship System</li>
+          <li>✴️ Private Academic Mentor</li>
+          <li>✴️ Additional Premium Study Kit</li>
+          <li>✴️ Extra Support</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.plans-section{
+  position:relative;
+  padding:120px 20px;
+  background:#050505;
+  overflow:hidden;
+}
+
+.plans-container{
+  max-width:1400px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.plans-heading{
+  text-align:center;
+  max-width:850px;
+  margin:auto auto 60px;
+}
+
+.plans-heading p{
+  color:#8EE000;
+  font-size:12px;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  font-weight:900;
+}
+
+.plans-heading h2{
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  color:white;
+  line-height:1;
+  margin-top:15px;
+  font-weight:1000;
+}
+
+.plans-heading h2 span{
+  display:block;
+  background:linear-gradient(90deg,#8EE000,#ffffff,#4CD7F6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.plans-heading h4{
+  margin-top:20px;
+  color:#9f9f9f;
+  font-weight:600;
+  font-size:17px;
+}
+
+.plans-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.plan-card{
+  position:relative;
+  padding:35px;
+  border-radius:32px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(24px);
+  transition:.4s;
+  overflow:hidden;
+}
+
+.plan-card:hover{
+  transform:translateY(-10px);
+}
+
+.featured{
+  border-color:#8EE000;
+  box-shadow:0 0 50px rgba(142,224,0,.15);
+}
+
+.premium-card{
+  border-color:#4CD7F6;
+  box-shadow:0 0 60px rgba(76,215,246,.15);
+}
+
+.popular-ribbon{
+  position:absolute;
+  top:20px;
+  right:-48px;
+  width:175px;
+  padding:10px 0;
+  background:linear-gradient(90deg,#8EE000,#d7ff73);
+  color:#000;
+  text-align:center;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.16em;
+  transform:rotate(45deg);
+  box-shadow:0 10px 25px rgba(142,224,0,.35);
+  z-index:10;
+}
+
+.plan-tag{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(142,224,0,.12);
+  color:#8EE000;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.premium-tag{
+  background:rgba(76,215,246,.12);
+  color:#4CD7F6;
+}
+
+.plan-card h3{
+  font-size:34px;
+  color:white;
+  margin-bottom:12px;
+  font-weight:1000;
+}
+
+.plan-subtitle{
+  color:#9f9f9f;
+  line-height:1.7;
+  min-height:80px;
+}
+
+.plan-price{
+  font-size:22px;
+  font-weight:1000;
+  color:white;
+  margin:18px 0 8px;
+  letter-spacing:-1px;
+}
+
+.plan-price::after{
+  content:" / Full Course";
+  display:block;
+  font-size:12px;
+  color:#8EE000;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-top:6px;
+  font-weight:900;
+}
+
+.premium-price{
+  color:#4CD7F6;
+}
+
+.premium-price::after{
+  color:#4CD7F6;
+}
+
+.plan-btn{
+  display:flex;
+  justify-content:center;
+  padding:16px;
+  border-radius:18px;
+  background:white;
+  color:black;
+  text-decoration:none;
+  font-weight:900;
+  margin:25px 0;
+}
+
+.premium-btn{
+  background:#4CD7F6;
+}
+
+.plan-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:14px;
+}
+
+.plan-card li{
+  color:#d6d6d6;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.plan-controls{
+  display:none;
+}
+
+@media(max-width:900px){
+
+  .plan-controls{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-bottom:20px;
+  }
+
+  .plan-controls button{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    background:#8EE000;
+    color:black;
+    font-size:28px;
+    font-weight:900;
+  }
+
+  .plans-grid{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    gap:16px;
+    padding-bottom:10px;
+    scroll-behavior:smooth;
+  }
+
+  .plans-grid::-webkit-scrollbar{
+    display:none;
+  }
+
+  .plan-card{
+    min-width:88%;
+    scroll-snap-align:center;
+  }
+}
+</style>
+
+<script>
+const plansSlider = document.getElementById("plansSlider");
+const planPrev = document.getElementById("planPrev");
+const planNext = document.getElementById("planNext");
+
+function planWidth(){
+  return document.querySelector(".plan-card").offsetWidth + 16;
+}
+
+planNext?.addEventListener("click",()=>{
+  plansSlider.scrollBy({
+    left:planWidth(),
+    behavior:"smooth"
+  });
+});
+
+planPrev?.addEventListener("click",()=>{
+  plansSlider.scrollBy({
+    left:-planWidth(),
+    behavior:"smooth"
+  });
+});
+</script>
+
+
+<!-- explore courses -->
 <section id="courses" class="course-section">
   <div class="course-bg-glow course-bg-1"></div>
   <div class="course-bg-glow course-bg-2"></div>
@@ -970,411 +1357,6 @@ coursePrev?.addEventListener("click", () => {
 });
 </script>
 
-<!-- PREMIUM MENTORSHIP PLANS -->
-<section id="plans" class="plans-section">
-
-  <div class="plans-glow glow-left"></div>
-  <div class="plans-glow glow-right"></div>
-
-  <div class="plans-container">
-
-    <div class="plans-heading">
-      <p>Mentorship Plans</p>
-
-      <h2>
-        Choose Your
-        <span>NEET Success Plan</span>
-      </h2>
-
-      <h4>
-        Personalized mentorship, tests, doubt solving and complete preparation support.
-      </h4>
-    </div>
-
-    <div class="plan-controls">
-      <button id="planPrev">‹</button>
-      <button id="planNext">›</button>
-    </div>
-
-    <div class="plans-grid" id="plansSlider">
-
-      <!-- VALUE PLAN -->
-<div class="plan-card">
-  <h3>Value Plan</h3>
-
-  <p class="plan-subtitle">
-    Because Every NEET Aspirant Deserves a Mentor.
-  </p>
-
-  <div class="plan-price">Rs. 10,999</div>
-
-  <a href="#" class="plan-btn">
-    Join Value Plan
-  </a>
-
-  <ul>
-    <li>✅ 2-Level Mentorship System</li>
-    <li>✅ Private Group</li>
-    <li>✅ Dedicated Doubt Support</li>
-    <li>✅ Essential Test Series</li>
-  </ul>
-</div>
-
-      <div class="plan-card">
-        <div class="plan-tag">Starter</div>
-        <h3>Elite Plan</h3>
-
-        <p class="plan-subtitle">
-          India's Best Personalized NEET Mentorship Program
-        </p>
-
-        <div class="plan-price">₹15,999</div>
-
-        <a href="https://wa.link/m98t9r" class="plan-btn">
-          Join Elite Plan
-        </a>
-
-        <ul>
-          <li>✅ 3-Level Mentorship System</li>
-          <li>✅ Private Group</li>
-          <li>✅ Mentorship Kit Box</li>
-          <li>✅ Dedicated Doubt Support</li>
-          <li>✅ Essential Test Series</li>
-        </ul>
-      </div>
-
-      <div class="plan-card featured">
-        <div class="popular-ribbon">POPULAR</div>
-
-        <div class="plan-tag">Most Popular</div>
-        <h3>Pro Plan</h3>
-
-        <p class="plan-subtitle">
-          Top Quality Mentorship + Offline Test Series
-        </p>
-
-        <div class="plan-price">₹16,999</div>
-
-        <a href="https://wa.link/jsusb6" class="plan-btn">
-          Join Pro Plan
-        </a>
-
-        <ul>
-          <li>✅ 3-Level Mentorship System</li>
-          <li>✅ Private Group</li>
-          <li>✅ Mentorship Kit Box</li>
-          <li>✅ Dedicated Doubt Support</li>
-          <li>✴️ Advanced Test Series</li>
-        </ul>
-      </div>
-
-      <div class="plan-card">
-        <div class="plan-tag">Best Value</div>
-        <h3>Yakeen Plan</h3>
-
-        <p class="plan-subtitle">
-          Mentorship + Physics Wallah Yakeen Batch
-        </p>
-
-        <div class="plan-price">₹19,999</div>
-
-        <a href="https://wa.link/q3i2wk" class="plan-btn">
-          Join Yakeen Plan
-        </a>
-
-        <ul>
-          <li>✅ 3-Level Mentorship System</li>
-          <li>✅ Private Group</li>
-          <li>✅ Mentorship Kit Box</li>
-          <li>✅ Dedicated Doubt Support</li>
-          <li>✅ Advanced Test Series</li>
-          <li>✴️ PW Yakeen Batch</li>
-        </ul>
-      </div>
-
-      <div class="plan-card premium-card">
-        <div class="plan-tag premium-tag">Ultimate</div>
-        <h3>Max Plan</h3>
-
-        <p class="plan-subtitle">
-          Complete Premium NEET Success Package
-        </p>
-
-        <div class="plan-price premium-price">₹29,999</div>
-
-        <a href="https://wa.link/l1sviy" class="plan-btn premium-btn">
-          Join Max Plan
-        </a>
-
-        <ul>
-          <li>✅ Private Group</li>
-          <li>✅ Mentorship Kit Box</li>
-          <li>✅ Dedicated Doubt Support</li>
-          <li>✴️ Advanced Test Series</li>
-          <li>✴️ 4-Level Mentorship System</li>
-          <li>✴️ Private Academic Mentor</li>
-          <li>✴️ Additional Premium Study Kit</li>
-          <li>✴️ Extra Support</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-.plans-section{
-  position:relative;
-  padding:120px 20px;
-  background:#050505;
-  overflow:hidden;
-}
-
-.plans-container{
-  max-width:1400px;
-  margin:auto;
-  position:relative;
-  z-index:2;
-}
-
-.plans-heading{
-  text-align:center;
-  max-width:850px;
-  margin:auto auto 60px;
-}
-
-.plans-heading p{
-  color:#8EE000;
-  font-size:12px;
-  letter-spacing:.35em;
-  text-transform:uppercase;
-  font-weight:900;
-}
-
-.plans-heading h2{
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  color:white;
-  line-height:1;
-  margin-top:15px;
-  font-weight:1000;
-}
-
-.plans-heading h2 span{
-  display:block;
-  background:linear-gradient(90deg,#8EE000,#ffffff,#4CD7F6);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.plans-heading h4{
-  margin-top:20px;
-  color:#9f9f9f;
-  font-weight:600;
-  font-size:17px;
-}
-
-.plans-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
-}
-
-.plan-card{
-  position:relative;
-  padding:35px;
-  border-radius:32px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(24px);
-  transition:.4s;
-  overflow:hidden;
-}
-
-.plan-card:hover{
-  transform:translateY(-10px);
-}
-
-.featured{
-  border-color:#8EE000;
-  box-shadow:0 0 50px rgba(142,224,0,.15);
-}
-
-.premium-card{
-  border-color:#4CD7F6;
-  box-shadow:0 0 60px rgba(76,215,246,.15);
-}
-
-.popular-ribbon{
-  position:absolute;
-  top:20px;
-  right:-48px;
-  width:175px;
-  padding:10px 0;
-  background:linear-gradient(90deg,#8EE000,#d7ff73);
-  color:#000;
-  text-align:center;
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:.16em;
-  transform:rotate(45deg);
-  box-shadow:0 10px 25px rgba(142,224,0,.35);
-  z-index:10;
-}
-
-.plan-tag{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:999px;
-  background:rgba(142,224,0,.12);
-  color:#8EE000;
-  font-size:11px;
-  font-weight:900;
-  text-transform:uppercase;
-  margin-bottom:20px;
-}
-
-.premium-tag{
-  background:rgba(76,215,246,.12);
-  color:#4CD7F6;
-}
-
-.plan-card h3{
-  font-size:34px;
-  color:white;
-  margin-bottom:12px;
-  font-weight:1000;
-}
-
-.plan-subtitle{
-  color:#9f9f9f;
-  line-height:1.7;
-  min-height:80px;
-}
-
-.plan-price{
-  font-size:22px;
-  font-weight:1000;
-  color:white;
-  margin:18px 0 8px;
-  letter-spacing:-1px;
-}
-
-.plan-price::after{
-  content:" / Full Course";
-  display:block;
-  font-size:12px;
-  color:#8EE000;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  margin-top:6px;
-  font-weight:900;
-}
-
-.premium-price{
-  color:#4CD7F6;
-}
-
-.premium-price::after{
-  color:#4CD7F6;
-}
-
-.plan-btn{
-  display:flex;
-  justify-content:center;
-  padding:16px;
-  border-radius:18px;
-  background:white;
-  color:black;
-  text-decoration:none;
-  font-weight:900;
-  margin:25px 0;
-}
-
-.premium-btn{
-  background:#4CD7F6;
-}
-
-.plan-card ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  gap:14px;
-}
-
-.plan-card li{
-  color:#d6d6d6;
-  font-weight:700;
-  line-height:1.5;
-}
-
-.plan-controls{
-  display:none;
-}
-
-@media(max-width:900px){
-
-  .plan-controls{
-    display:flex;
-    justify-content:flex-end;
-    gap:10px;
-    margin-bottom:20px;
-  }
-
-  .plan-controls button{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    border:none;
-    background:#8EE000;
-    color:black;
-    font-size:28px;
-    font-weight:900;
-  }
-
-  .plans-grid{
-    display:flex;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    gap:16px;
-    padding-bottom:10px;
-    scroll-behavior:smooth;
-  }
-
-  .plans-grid::-webkit-scrollbar{
-    display:none;
-  }
-
-  .plan-card{
-    min-width:88%;
-    scroll-snap-align:center;
-  }
-}
-</style>
-
-<script>
-const plansSlider = document.getElementById("plansSlider");
-const planPrev = document.getElementById("planPrev");
-const planNext = document.getElementById("planNext");
-
-function planWidth(){
-  return document.querySelector(".plan-card").offsetWidth + 16;
-}
-
-planNext?.addEventListener("click",()=>{
-  plansSlider.scrollBy({
-    left:planWidth(),
-    behavior:"smooth"
-  });
-});
-
-planPrev?.addEventListener("click",()=>{
-  plansSlider.scrollBy({
-    left:-planWidth(),
-    behavior:"smooth"
-  });
-});
-</script>
 
     <!-- SLIDING STRIP AFTER JOIN NOW -->
     <div class="mentor-strip">
@@ -1394,6 +1376,1257 @@ planPrev?.addEventListener("click",()=>{
         <div class="strip-card"><span>📊</span><p>Progress Tracking</p></div>
       </div>
     </div>
+
+
+    <!-- Value Plan -->
+     <!-- =====================================================
+     VALUE PLAN - SEPARATE PREMIUM SECTION
+===================================================== -->
+
+<section class="vp-section">
+
+  <!-- Background Glow -->
+  <div class="vp-glow vp-glow-left"></div>
+  <div class="vp-glow vp-glow-right"></div>
+
+  <div class="vp-container">
+
+    <!-- HEADING -->
+    <div class="vp-heading">
+
+      <p class="vp-small-title">
+        VALUE MENTORSHIP
+      </p>
+
+      <h2>
+        Because Every NEET Aspirant
+        <span>Deserves a Mentor.</span>
+      </h2>
+
+    </div>
+
+
+    <!-- MAIN CARD -->
+    <div class="vp-card">
+
+      <!-- Decorative Elements -->
+      <div class="vp-circle vp-circle-one"></div>
+      <div class="vp-circle vp-circle-two"></div>
+
+      <div class="vp-card-inner">
+
+
+        <!-- =============================
+             LEFT CONTENT
+        ============================== -->
+        <div class="vp-left">
+
+          <div class="vp-top-row">
+
+            <div class="vp-badge">
+              VALUE PLAN
+            </div>
+
+
+          </div>
+
+
+          <h3>
+            Value Plan
+          </h3>
+
+
+          <p class="vp-subtitle">
+            Because Every NEET Aspirant Deserves a Mentor.
+          </p>
+
+
+          <!-- PRICE -->
+          <div class="vp-price-wrap">
+
+            <span class="vp-price-symbol">₹</span>
+
+            <span class="vp-price1">
+              10,999
+            </span>
+
+          </div>
+
+
+          <div class="vp-price-line">
+            Complete Mentorship Plan
+          </div>
+
+
+          <!-- BUTTON -->
+          <a href="https://api.whatsapp.com/send?phone=916289459483&text=I%27m%20willing%20to%20join%20the%20Value%20plan.%20What%27s%20the%20next%20process%3F" class="vp-btn">
+
+            <span>
+              Join Value Plan
+            </span>
+
+            <span class="vp-arrow">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+
+
+        <!-- =============================
+             RIGHT FEATURES
+        ============================== -->
+
+        <div class="vp-right">
+
+          <div class="vp-feature-heading">
+
+            <p>
+              INCLUDED IN VALUE PLAN
+            </p>
+
+            <h4>
+              Everything You Need
+              <span>To Stay Consistent</span>
+            </h4>
+
+          </div>
+
+
+          <div class="vp-features">
+
+
+            <!-- 01 -->
+            <div class="vp-feature">
+
+              <div class="vp-feature-number">
+                01
+              </div>
+
+              <div class="vp-feature-content">
+
+                <div class="vp-check">
+                  ✓
+                </div>
+
+                <h5>
+                  2-Level Mentorship System
+                </h5>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- 02 -->
+            <div class="vp-feature">
+
+              <div class="vp-feature-number">
+                02
+              </div>
+
+              <div class="vp-feature-content">
+
+                <div class="vp-check">
+                  ✓
+                </div>
+
+                <h5>
+                  Private Group
+                </h5>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- 03 -->
+            <div class="vp-feature">
+
+              <div class="vp-feature-number">
+                03
+              </div>
+
+              <div class="vp-feature-content">
+
+                <div class="vp-check">
+                  ✓
+                </div>
+
+                <h5>
+                  Dedicated Doubt Support
+                </h5>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- 04 -->
+            <div class="vp-feature">
+
+              <div class="vp-feature-number">
+                04
+              </div>
+
+              <div class="vp-feature-content">
+
+                <div class="vp-check">
+                  ✓
+                </div>
+
+                <h5>
+                  Essential Test Series
+                </h5>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<style>
+
+/* =====================================================
+   VALUE PLAN SECTION
+===================================================== */
+
+.vp-section{
+  position:relative;
+  width:100%;
+  padding:120px 20px;
+  background:#050505;
+  overflow:hidden;
+  color:#fff;
+  font-family:"Plus Jakarta Sans",sans-serif;
+}
+
+
+/* CONTAINER */
+
+.vp-container{
+  width:100%;
+  max-width:1280px;
+  margin:0 auto;
+  position:relative;
+  z-index:5;
+}
+
+
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+.vp-glow{
+  position:absolute;
+  border-radius:999px;
+  filter:blur(145px);
+  pointer-events:none;
+}
+
+
+.vp-glow-left{
+  width:500px;
+  height:500px;
+  top:-100px;
+  left:-220px;
+  background:rgba(142,224,0,.14);
+}
+
+
+.vp-glow-right{
+  width:520px;
+  height:520px;
+  right:-240px;
+  bottom:-150px;
+  background:rgba(76,215,246,.12);
+}
+
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.vp-heading{
+  text-align:center;
+  max-width:900px;
+  margin:0 auto 52px;
+}
+
+
+.vp-small-title{
+  margin:0 0 16px;
+  color:#8EE000;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+}
+
+
+.vp-heading h2{
+  margin:0;
+  color:#fff;
+
+  font-size:
+    clamp(2.8rem,6vw,5.4rem);
+
+  line-height:1;
+  letter-spacing:-.055em;
+  font-weight:1000;
+}
+
+
+.vp-heading h2 span{
+  display:block;
+  margin-top:8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8EE000,
+      #ffffff,
+      #4CD7F6,
+      #8EE000
+    );
+
+  background-size:250%;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:vpHeadingMove 6s linear infinite;
+}
+
+
+@keyframes vpHeadingMove{
+
+  to{
+    background-position:250%;
+  }
+
+}
+
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.vp-card{
+  position:relative;
+  width:100%;
+  border-radius:38px;
+
+  padding:1px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(142,224,0,.7),
+      rgba(255,255,255,.08) 32%,
+      rgba(255,255,255,.08) 68%,
+      rgba(76,215,246,.6)
+    );
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.55),
+    0 0 70px rgba(142,224,0,.04);
+
+  overflow:hidden;
+}
+
+
+.vp-card-inner{
+  position:relative;
+  z-index:3;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,.85fr)
+    minmax(0,1.15fr);
+
+  min-height:560px;
+
+  border-radius:37px;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      140deg,
+      #0b0b0b,
+      #070707 55%,
+      #0a0a0a
+    );
+}
+
+
+
+/* =====================================================
+   DECORATIVE CIRCLES
+===================================================== */
+
+.vp-circle{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+
+.vp-circle-one{
+  width:320px;
+  height:320px;
+
+  top:-170px;
+  left:-120px;
+
+  border:
+    1px solid
+    rgba(142,224,0,.13);
+
+  box-shadow:
+    0 0 80px
+    rgba(142,224,0,.04);
+}
+
+
+.vp-circle-two{
+  width:420px;
+  height:420px;
+
+  right:-230px;
+  bottom:-220px;
+
+  border:
+    1px solid
+    rgba(76,215,246,.15);
+}
+
+
+
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.vp-left{
+  position:relative;
+
+  padding:
+    60px 55px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  border-right:
+    1px solid
+    rgba(255,255,255,.08);
+
+  background:
+
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(142,224,0,.12),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      transparent
+    );
+}
+
+
+
+/* TOP LABELS */
+
+.vp-top-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+
+  margin-bottom:28px;
+}
+
+
+.vp-badge{
+
+  padding:9px 15px;
+
+  border-radius:999px;
+
+  background:
+    rgba(142,224,0,.11);
+
+  border:
+    1px solid
+    rgba(142,224,0,.28);
+
+  color:#8EE000;
+
+  font-size:10px;
+  line-height:1;
+  font-weight:900;
+
+  letter-spacing:.18em;
+}
+
+
+.vp-course-label{
+
+  padding:9px 14px;
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid
+    rgba(255,255,255,.09);
+
+  color:#888;
+
+  font-size:9px;
+  line-height:1;
+  font-weight:900;
+
+  letter-spacing:.17em;
+}
+
+
+
+/* PLAN NAME */
+
+.vp-left h3{
+
+  margin:0;
+
+  color:#fff;
+
+  font-size:
+    clamp(3rem,5vw,5rem);
+
+  line-height:.95;
+
+  letter-spacing:-.06em;
+
+  font-weight:1000;
+}
+
+
+.vp-subtitle{
+
+  max-width:440px;
+
+  margin:20px 0 0;
+
+  color:#999;
+
+  font-size:16px;
+
+  line-height:1.7;
+
+  font-weight:600;
+}
+
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.vp-price-wrap{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  margin-top:35px;
+}
+
+
+.vp-price-symbol{
+  margin-top:0;
+  margin-right:3px;
+  color:#8EE000;
+  font-size:33px;
+  line-height:1.2;
+  font-weight:1000;
+}
+
+
+.vp-price1{
+  color:#fff;
+  font-size:33px;
+  line-height:1.2;
+  font-weight:1000;
+  letter-spacing:-1px;
+}
+
+
+.vp-price-line{
+
+  margin-top:12px;
+
+  color:#8EE000;
+
+  font-size:10px;
+
+  line-height:1.4;
+
+  font-weight:900;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+}
+
+
+
+/* =====================================================
+   JOIN BUTTON
+===================================================== */
+
+.vp-btn{
+
+  width:100%;
+
+  max-width:330px;
+
+  margin-top:35px;
+
+  padding:
+    10px 11px
+    10px 22px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:
+    space-between;
+
+  gap:20px;
+
+  background:#fff;
+
+  border-radius:18px;
+
+  color:#050505;
+
+  text-decoration:none;
+
+  text-transform:uppercase;
+
+  font-size:12px;
+
+  font-weight:1000;
+
+  letter-spacing:.04em;
+
+  transition:.35s ease;
+
+  box-shadow:
+    0 14px 35px
+    rgba(0,0,0,.25);
+}
+
+
+.vp-arrow{
+
+  width:43px;
+  height:43px;
+
+  min-width:43px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:13px;
+
+  background:#101010;
+
+  color:#fff;
+
+  font-size:22px;
+
+  transition:.35s ease;
+}
+
+
+.vp-btn:hover{
+
+  background:#8EE000;
+
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 20px 50px
+    rgba(142,224,0,.15);
+}
+
+
+.vp-btn:hover .vp-arrow{
+
+  transform:
+    translateX(3px);
+
+  background:#050505;
+}
+
+
+
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+
+.vp-right{
+
+  padding:
+    60px 50px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  position:relative;
+}
+
+
+
+.vp-feature-heading p{
+
+  margin:0 0 13px;
+
+  color:#4CD7F6;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  letter-spacing:.3em;
+}
+
+
+.vp-feature-heading h4{
+
+  margin:0;
+
+  color:#fff;
+
+  font-size:
+    clamp(2rem,3.4vw,3.3rem);
+
+  line-height:1.05;
+
+  letter-spacing:-.045em;
+
+  font-weight:1000;
+}
+
+
+.vp-feature-heading h4 span{
+
+  display:block;
+
+  margin-top:5px;
+
+  color:#8EE000;
+}
+
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.vp-features{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:14px;
+
+  margin-top:35px;
+}
+
+
+.vp-feature{
+
+  position:relative;
+
+  min-height:150px;
+
+  padding:22px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  gap:24px;
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid
+    rgba(255,255,255,.09);
+
+  overflow:hidden;
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+
+.vp-feature::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:auto 0 0 0;
+
+  height:2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8EE000,
+      #4CD7F6
+    );
+
+  transform:
+    scaleX(0);
+
+  transform-origin:left;
+
+  transition:
+    transform .4s ease;
+}
+
+
+.vp-feature:hover{
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(142,224,0,.25);
+
+  background:
+    rgba(255,255,255,.055);
+}
+
+
+.vp-feature:hover::before{
+
+  transform:
+    scaleX(1);
+}
+
+
+
+/* NUMBER */
+
+.vp-feature-number{
+
+  color:
+    rgba(255,255,255,.25);
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:.14em;
+}
+
+
+
+/* FEATURE CONTENT */
+
+.vp-feature-content{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+}
+
+
+.vp-check{
+
+  flex:0 0 auto;
+
+  width:36px;
+  height:36px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(142,224,0,.1);
+
+  border:
+    1px solid
+    rgba(142,224,0,.22);
+
+  color:#8EE000;
+
+  font-size:17px;
+
+  font-weight:900;
+}
+
+
+.vp-feature h5{
+
+  margin:0;
+
+  color:#eaeaea;
+
+  font-size:14px;
+
+  line-height:1.45;
+
+  font-weight:800;
+}
+
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+  .vp-section{
+    padding:95px 18px;
+  }
+
+
+  .vp-card-inner{
+
+    grid-template-columns:1fr;
+
+    min-height:0;
+  }
+
+
+  .vp-left{
+
+    padding:50px;
+
+    border-right:0;
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.08);
+  }
+
+
+  .vp-right{
+
+    padding:50px;
+  }
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+  .vp-section{
+
+    padding:
+      75px 14px;
+  }
+
+
+  .vp-heading{
+
+    margin-bottom:35px;
+  }
+
+
+  .vp-small-title{
+
+    font-size:9px;
+
+    letter-spacing:.28em;
+  }
+
+
+  .vp-heading h2{
+
+    font-size:
+      clamp(2.3rem,11.2vw,3.6rem);
+
+    line-height:1.02;
+  }
+
+
+  .vp-card{
+
+    border-radius:29px;
+  }
+
+
+  .vp-card-inner{
+
+    border-radius:28px;
+  }
+
+
+  .vp-left{
+
+    padding:
+      36px 23px;
+  }
+
+
+  .vp-top-row{
+
+    margin-bottom:24px;
+  }
+
+
+  .vp-left h3{
+
+    font-size:
+      clamp(2.9rem,15vw,4.5rem);
+  }
+
+
+  .vp-subtitle{
+
+    margin-top:16px;
+
+    font-size:14px;
+
+    line-height:1.65;
+  }
+
+
+  .vp-price-wrap{
+
+    margin-top:28px;
+  }
+
+
+  .vp-price-symbol{
+
+    margin-top:5px;
+
+    font-size:23px;
+  }
+
+
+  .vp-price{
+
+    font-size:
+      clamp(4rem,20vw,5.4rem);
+  }
+
+
+  .vp-price-line{
+
+    font-size:9px;
+
+    letter-spacing:.14em;
+  }
+
+
+  .vp-btn{
+
+    max-width:none;
+
+    margin-top:28px;
+  }
+
+
+  .vp-right{
+
+    padding:
+      38px 18px
+      24px;
+  }
+
+
+  .vp-feature-heading{
+
+    padding:0 5px;
+  }
+
+
+  .vp-feature-heading h4{
+
+    font-size:
+      clamp(2rem,9vw,2.8rem);
+  }
+
+
+  .vp-features{
+
+    grid-template-columns:1fr;
+
+    gap:10px;
+
+    margin-top:27px;
+  }
+
+
+  .vp-feature{
+
+    min-height:0;
+
+    padding:18px;
+
+    flex-direction:row;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:15px;
+  }
+
+
+  .vp-feature-number{
+
+    width:23px;
+
+    flex:0 0 23px;
+  }
+
+
+  .vp-feature-content{
+
+    flex:1;
+  }
+
+
+  .vp-check{
+
+    width:34px;
+    height:34px;
+
+    flex:0 0 34px;
+  }
+
+
+  .vp-feature h5{
+
+    font-size:13px;
+  }
+
+}
+
+
+
+/* =====================================================
+   EXTRA SMALL MOBILE
+===================================================== */
+
+@media(max-width:360px){
+
+  .vp-section{
+
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+
+  .vp-left{
+
+    padding:
+      32px 18px;
+  }
+
+
+  .vp-right{
+
+    padding:
+      34px 13px
+      20px;
+  }
+
+
+  .vp-badge{
+
+    font-size:8px;
+  }
+
+
+  .vp-course-label{
+
+    font-size:8px;
+  }
+
+
+  .vp-feature{
+
+    padding:15px;
+  }
+
+
+  .vp-feature h5{
+
+    font-size:12px;
+  }
+
+}
+
+</style>
 
     <!-- ANY DOUBT SECTION -->
 <section class="any-doubt-section">
